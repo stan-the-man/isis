@@ -26,6 +26,8 @@ var Schedule = {
         courses["MATH 14"], 
         courses["AMTH 108"]
     ],
+    
+    futureClasses: [],
 
     setMath: function(level) {
         if (level == 11) {
@@ -150,6 +152,14 @@ var Schedule = {
             this.fall.push(courses["C&I 1"]);
             this.spring.push(courses["C&I 2"]);
         }
+        
+        //if fall has two cores and a blank spot, move coen12
+        if (this.numberOfCore("fall") == 2 && this.fall.length < 4)
+            this.moveCourse("COEN 12", "fall", "spring");
+        if ((this.numberOfCore("winter") == 2 && this.winter.length < 4) || this.winter.length == 2)
+            this.winter.push(this.futureClasses.pop());
+        if ((this.numberOfCore("spring") == 2 && this.spring.length < 4) || this.spring.length == 2)
+            this.spring.push(this.futureClasses.pop());
 
         //if fall has two cores and a blank spot, move coen12
         if (this.numberOfCore("fall") == 2 && this.fall.length < 4)
@@ -208,6 +218,11 @@ var Schedule = {
 
         //COEN 19
         this.spring.push(courses["COEN 19"]);
+        
+        //add future classes if there are a lot of holes
+        this.futureClasses.push(courses["COEN 21"]);
+        this.futureClasses.push(courses["COEN 20"]);
+        this.futureClasses.reverse();
     
         this.fillHoles();
         this.addENGR1();
@@ -221,6 +236,11 @@ var Schedule = {
         //Science
         if (this.requirements["Natural Science"] == false)
             this.fall.push(courses["Natural Science"]);
+        
+        //add future classes if there are a lot of holes
+        this.futureClasses.push(courses["COMM 2"]);
+        this.futureClasses.push(courses["COMM 12"]);
+        this.futureClasses.reverse();
     
         this.fillHoles();
         this.addENGR1();
