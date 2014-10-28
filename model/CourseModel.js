@@ -17,6 +17,7 @@ var Schedule = {
         this.fall = [];
         this.winter = [];
         this.spring = [];
+        this.futureClasses = [];
     },
 
     mathTrack: [
@@ -156,9 +157,9 @@ var Schedule = {
         //if fall has two cores and a blank spot, move coen12
         if (this.numberOfCore("fall") == 2 && this.fall.length < 4)
             this.moveCourse("COEN 12", "fall", "spring");
-        if ((this.numberOfCore("winter") == 2 && this.winter.length < 4) || this.winter.length == 2)
+        if ((this.numberOfCore("winter") >= 2 && this.winter.length < 4) || this.winter.length <= 2)
             this.winter.push(this.futureClasses.pop());
-        if ((this.numberOfCore("spring") == 2 && this.spring.length < 4) || this.spring.length == 2)
+        if ((this.numberOfCore("spring") >= 2 && this.spring.length < 4) || this.spring.length <= 2)
             this.spring.push(this.futureClasses.pop());
 
         //if fall has two cores and a blank spot, move coen12
@@ -241,6 +242,7 @@ var Schedule = {
         this.futureClasses.push(courses["COMM 2"]);
         this.futureClasses.push(courses["COMM 12"]);
         this.futureClasses.reverse();
+        debugger;
     
         this.fillHoles();
         this.addENGR1();
