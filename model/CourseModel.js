@@ -1,203 +1,242 @@
-var fallQuarter = [];
-var winterQuarter = [];
-var springQuarter = [];
+var Schedule = {
+    fall: [],
+    winter: [],
+    spring: [],
+    requirements: {
+        "Natural Science" : true,
+        "MATH 11" : true,
+        "MATH 12" : true,
+        "CHEM 11" : true,
+        "COEN 10" : true,
+        "COEN 11" : true,
+        "PHYS 31" : true,
+        "PHYS 33" : true  
+    },
 
-var mathTrack = [courses["MATH 11"], courses["MATH 12"], courses["MATH 13"], courses["MATH 14"], courses["AMTH 108"]];
+    reset: function() {
+        this.fall = [];
+        this.winter = [];
+        this.spring = [];
+    },
 
-var possibleReqs = {"Natural Science" : true,
-                    "MATH 11" : true,
-                    "MATH 12" : true,
-                    "CHEM 11" : true,
-                    "COEN 10" : true,
-                    "COEN 11" : true,
-                    "PHYS 31" : true,
-                    "PHYS 33" : true};
+    mathTrack: [
+        courses["MATH 11"], 
+        courses["MATH 12"], 
+        courses["MATH 13"], 
+        courses["MATH 14"], 
+        courses["AMTH 108"]
+    ],
 
-function toggleMathCredit(level) {
-    if (level == 11) {
-        possibleReqs["MATH 11"] = true;
-        possibleReqs["MATH 12"] = false;
-    } else if (level == 12) {
-        possibleReqs["MATH 11"] = true;
-        possibleReqs["MATH 12"] = true;
-    } else {
-        possibleReqs["MATH 11"] = false;
-        possibleReqs["MATH 12"] = false;
-    }
-}
+    setMath: function(level) {
+        if (level == 11) {
+            this.requirements["MATH 11"] = true;
+            this.requirements["MATH 12"] = false;
+        } else if (level == 12) {
+            this.requirements["MATH 11"] = true;
+            this.requirements["MATH 12"] = true;
+        } else {
+            this.requirements["MATH 11"] = false;
+            this.requirements["MATH 12"] = false;
+        }
+    },
 
-function toggleNaturalScienceCredit(has) {
-    possibleReqs["Natural Science"] = has;
-}
+    setNaturalScience: function(has) {
+        this.requirements["Natural Science"] = has;
+    },
 
-function toggleChemistryCredit(has) {
-    possibleReqs["CHEM 11"] = has;
-}
+    setChemistry: function(has) {
+        this.requirements["CHEM 11"] = has;
+    },
 
-function toggleCOENCredit(level) {
-    if (level == 10) {
-        possibleReqs["COEN 10"] = true;
-        possibleReqs["COEN 11"] = false;
-    } else if (level == 11) {
-        possibleReqs["COEN 10"] = true;
-        possibleReqs["COEN 11"] = true;
-    } else {
-        possibleReqs["COEN 10"] = false;
-        possibleReqs["COEN 11"] = false;
-    }
-}
+    setCoen: function(credit) {
+        if (level == 10) {
+            this.requirements["COEN 10"] = true;
+            this.requirements["COEN 11"] = false;
+        } else if (level == 11) {
+            this.requirements["COEN 10"] = true;
+            this.requirements["COEN 11"] = true;
+        } else {
+            this.requirements["COEN 10"] = false;
+            this.requirements["COEN 11"] = false;
+        }
+    },
 
-function togglePhysicsCredit(level) {
-    if (level == 31) {
-        possibleReqs["PHYS 31"] = true;
-        possibleReqs["PHYS 33"] = false;
-    } else if (level == 33) {
-        possibleReqs["PHYS 31"] = true;
-        possibleReqs["PHYS 33"] = true;
-    } else {
-        possibleReqs["PHYS 31"] = false;
-        possibleReqs["PHYS 33"] = false;
-    }
-}
+    setPhysics: function(level) {
+        if (level == 31) {
+            this.requirements["PHYS 31"] = true;
+            this.requirements["PHYS 33"] = false;
+        } else if (level == 33) {
+            this.requirements["PHYS 31"] = true;
+            this.requirements["PHYS 33"] = true;
+        } else {
+            this.requirements["PHYS 31"] = false;
+            this.requirements["PHYS 33"] = false;
+        }
+    },
 
-function createCOENSchedule() {
-    //Math and COEN
-    createGeneralSchedule();
+
+    addENGR1: function() {
+        var fallLabs = 0;
+        var winterLabs = 0;
+        var springLabs = 0;
+        var tempLabCounter = 0;
+
+        function hasLab(course) {
+            if (course.hasLab)
+                tempLabCounter++;
+        };
+
+        /* iterate through fall */
+        this.fall.forEach(hasLab);
+        fallLabs = tempLabCounter;
+
+        /* reset and iterate through winter */
+        tempLabCounter = 0;
+        this.winter.forEach(hasLab);
+        winterLabs = tempLabCounter;
+
+        /* reset and iterate through spring */
+        tempLabCounter = 0;
+        this.spring.forEach(hasLab);
+        springLabs = tempLabCounter;
+
+
+        if (fallLabs <= winterLabs) {
+            if (fallLabs <= springLabs)
+                this.fall.push(courses["ENGR 1"]);
+            else
+                this.spring.push(courses["ENGR 1"]);
+        } else {
+            if (winterLabs <= springLabs)
+                this.winter.push(courses["ENGR 1"]);
+            else
+                this.spring.push(courses["ENGR 1"]);
+        }
+
+        //add to quarter with least labs
+    },
+
+    numberOfCore: function(quarter) {
+        var number = 0;
+        for (var i = 0; i < this[quarter].length; i++) {
+            if (this[quarter][i].subject == "core")
+                number++;
+        }
+
+        return number;
+    },
+
+    moveCourse: function(courseName, newQuarter, oldQuarter) {
+        var index = -1;
+        for (var i = 0; i < this[oldQuarter].length; i++)
+            if (this[oldQuarter][i].name == courseName)
+                index = i;
+        if (index == -1)
+            return false;
+        this[oldQuarter].splice(index, 1);
+        this[newQuarter].push(courses[courseName]);
+        return true;
+    },
+
+    fillHoles: function() {
+        //if two consecutive quarters empty, add C&I
+        if (this.fall.length < 4 && this.winter.length < 4) {
+            this.fall.push(courses["C&I 1"]);
+            this.winter.push(courses["C&I 2"]);
+        } else if (this.winter.length < 4 && this.spring.length < 4) {
+            this.winter.push(courses["C&I 1"]);
+            this.spring.push(courses["C&I 2"]);
+        } else if (this.fall.length < 4 && this.spring.length < 4) {
+            this.fall.push(courses["C&I 1"]);
+            this.spring.push(courses["C&I 2"]);
+        }
+
+        //if fall has two cores and a blank spot, move coen12
+        if (numberOfCore("fall") == 2 && this.fall.length < 4)
+            moveCourse("COEN 12", "fall", "spring");
     
-    //Science
-    //var studentScienceTrack = [];
-    if (possibleReqs["CHEM 11"] == false)
-        fallQuarter.push(courses["CHEM 11"]);
-    if (possibleReqs["PHYS 31"] == false)
-        winterQuarter.push(courses["PHYS 31"]);
-    springQuarter.push(courses["PHYS 32"]);
-    /*if (possibleReqs["PHYS 33"] == false)
-        studentScienceTrack.push(courses["PHYS 33"]);
-    studentScienceTrack.reverse();
-    fallQuarter.push(studentScienceTrack.pop());
-    if (studentScienceTrack.length > 0)
-        winterQuarter.push(studentScienceTrack.pop());
-    if (studentScienceTrack.length > 0)
-        springQuarter.push(studentScienceTrack.pop());*/
-    
-    //COEN 19
-    springQuarter.push(courses["COEN 19"]);
-    
-    fillHoles();
-    addENGR1();
-    printScheduleForDebugging();
-}
+        while (this.fall.length < 4) {
+            this.fall.push(courses["Core"]);
+        }
+        while (this.winter.length < 4) {
+            this.winter.push(courses["Core"]);
+        }
+        while (this.spring.length < 4) {
+            this.spring.push(courses["Core"]);
+        }
+    },
 
-function createWDESchedule() {
-    //Math and COEN
-    createGeneralSchedule();
+    generate: function() {
+        this.reset();
     
-    //Science
-    if (possibleReqs["Natural Science"] == false)
-        fallQuarter.push(courses["Natural Science"]);
+        //CTW
+        this.fall.push(courses["CTW 1"]);
+        this.winter.push(courses["CTW 2"]);
     
-    fillHoles();
-    addENGR1();
-    printScheduleForDebugging();
-}
-
-function createGeneralSchedule() {
-    //erase previous schedule
-    fallQuarter = [];
-    winterQuarter = [];
-    springQuarter = [];
-    
-    //CTW
-    fallQuarter.push(courses["CTW 1"]);
-    winterQuarter.push(courses["CTW 2"]);
-    
-    //Math
-    var studentMathTrack;
-    if (possibleReqs["MATH 11"] == true && possibleReqs["MATH 12"] == false)
-        studentMathTrack = mathTrack.slice(1);
-    else if (possibleReqs["MATH 11"] == true && possibleReqs["MATH 12"] == true)
-        studentMathTrack = mathTrack.slice(2);
-    else
-        studentMathTrack = mathTrack.slice(0);
-    studentMathTrack.reverse();
-    fallQuarter.push(studentMathTrack.pop());
-    winterQuarter.push(studentMathTrack.pop());
-    springQuarter.push(studentMathTrack.pop());
-    
-    //COEN
-    if (possibleReqs["COEN 10"] == false)
-        fallQuarter.push(courses["COEN 10"]);
-    if (possibleReqs["COEN 11"] == false)
-        winterQuarter.push(courses["COEN 11"]);
-    springQuarter.push(courses["COEN 12"]);
-}
-
-function fillHoles() {
-    //if two consecutive quarters empty, add C&I
-    if (fallQuarter.length < 4 && winterQuarter.length < 4) {
-        fallQuarter.push(courses["C&I 1"]);
-        winterQuarter.push(courses["C&I 2"]);
-    } else if (winterQuarter.length < 4 && springQuarter.length < 4) {
-        winterQuarter.push(courses["C&I 1"]);
-        springQuarter.push(courses["C&I 2"]);
-    } else if (fallQuarter.length < 4 && springQuarter.length < 4) {
-        fallQuarter.push(courses["C&I 1"]);
-        springQuarter.push(courses["C&I 2"]);
-    }
-    
-    while (fallQuarter.length < 4) {
-        fallQuarter.push(courses["Core"]);
-    }
-    while (winterQuarter.length < 4) {
-        winterQuarter.push(courses["Core"]);
-    }
-    while (springQuarter.length < 4) {
-        springQuarter.push(courses["Core"]);
-    }
-}
-
-function addENGR1() {
-    var fallLabs = 0;
-    var winterLabs = 0;
-    var springLabs = 0;
-    var tempLabCounter = 0;
-    function hasLab(course) {
-        if (course.hasLab)
-            tempLabCounter++;
-    }
-    fallQuarter.forEach(hasLab);
-    fallLabs = tempLabCounter;
-    tempLabCounter = 0;
-    winterQuarter.forEach(hasLab);
-    winterLabs = tempLabCounter;
-    tempLabCounter = 0;
-    springQuarter.forEach(hasLab);
-    springLabs = tempLabCounter;
-    if (fallLabs <= winterLabs) {
-        if (fallLabs <= springLabs)
-            fallQuarter.push(courses["ENGR 1"]);
+        //Math
+        var studentMathTrack;
+        if (this.requirements["MATH 11"] == true && this.requirements["MATH 12"] == false)
+            studentMathTrack = this.mathTrack.slice(1);
+        else if (this.requirements["MATH 11"] == true && this.requirements["MATH 12"] == true)
+            studentMathTrack = this.mathTrack.slice(2);
         else
-            springQuarter.push(courses["ENGR 1"]);
-    }
-    else {
-        if (winterLabs <= springLabs)
-            winterQuarter.push(courses["ENGR 1"]);
-        else
-            springQuarter.push(courses["ENGR 1"]);
-    }
-    //add to quarter with least labs
-}    
+            studentMathTrack = this.mathTrack.slice(0);
 
-function printScheduleForDebugging() {
-    var listOfClasses = "Fall: ";
-    for (var i = 0; i < fallQuarter.length; i++)
-        listOfClasses += fallQuarter[i].name + " ";
-    listOfClasses += "\nWinter: ";
-    for (var i = 0; i < winterQuarter.length; i++)
-        listOfClasses += winterQuarter[i].name + " ";
-    listOfClasses += "\nSpring: ";
-    for (var i = 0; i < springQuarter.length; i++)
-        listOfClasses += springQuarter[i].name + " ";
-    alert(listOfClasses);
-}
+        studentMathTrack.reverse();
+        this.fall.push(studentMathTrack.pop());
+        this.winter.push(studentMathTrack.pop());
+        this.spring.push(studentMathTrack.pop());
+    
+        //COEN
+        if (this.requirements["COEN 10"] == false)
+            this.fall.push(courses["COEN 10"]);
+        if (this.requirements["COEN 11"] == false)
+            this.winter.push(courses["COEN 11"]);
+        this.spring.push(courses["COEN 12"]);
+    },
 
+    coen: function() {
+        // Math and COEN
+        this.generate();
+
+        //Science
+        if (this.requirements["CHEM 11"] == false)
+            this.fall.push(courses["CHEM 11"]);
+        if (this.requirements["PHYS 31"] == false)
+            this.winter.push(courses["PHYS 31"]);
+        this.spring.push(courses["PHYS 32"]);
+
+        //COEN 19
+        this.spring.push(courses["COEN 19"]);
+    
+        this.fillHoles();
+        this.addENGR1();
+        this.print();
+    },
+
+    web: function() {
+        //Math and COEN
+        this.generate();
+    
+        //Science
+        if (this.requirements["Natural Science"] == false)
+            this.fall.push(courses["Natural Science"]);
+    
+        this.fillHoles();
+        this.addENGR1();
+        this.print();
+    },
+
+    print: function() {
+        var listOfClasses = "Fall: ";
+        for (var i = 0; i < this.fall.length; i++)
+            listOfClasses += this.fall[i].name + " ";
+        listOfClasses += "\nWinter: ";
+        for (var i = 0; i < this.winter.length; i++)
+            listOfClasses += this.winter[i].name + " ";
+        listOfClasses += "\nSpring: ";
+        for (var i = 0; i < this.spring.length; i++)
+            listOfClasses += this.spring[i].name + " ";
+        alert(listOfClasses);
+    },
+};
