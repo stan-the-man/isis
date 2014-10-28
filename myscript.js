@@ -24,7 +24,7 @@ function showContentOne() {
 	document.getElementById('content1').style.visibility='visible';
 	document.getElementById('content2').style.visibility='hidden';
 	document.getElementById('content3').style.visibility='hidden';
-	document.getElementById('n1').className='tab current';
+	document.getElementById('n1').className='tab current bounceInUp';
 	document.getElementById('n2').className='tab';
 	document.getElementById('n3').className='tab';
 	document.getElementById('schedule').className='schedule';
@@ -37,7 +37,7 @@ function showContentTwo() {
 	document.getElementById('content2').style.visibility='visible';
 	document.getElementById('content3').style.visibility='hidden';
 	document.getElementById('n1').className='tab';
-	document.getElementById('n2').className='tab current';
+	document.getElementById('n2').className='tab current bounceInUp';
 	document.getElementById('n3').className='tab';
 	document.getElementById('schedule').className='schedule';
 }
@@ -50,7 +50,7 @@ function showContentThree() {
 	document.getElementById('content3').style.visibility='visible';
 	document.getElementById('n1').className='tab';
 	document.getElementById('n2').className='tab';
-	document.getElementById('n3').className='tab current';
+	document.getElementById('n3').className='tab current bounceInUp';
 	document.getElementById('schedule').className='schedule';
 }
 
