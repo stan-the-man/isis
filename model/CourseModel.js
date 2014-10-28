@@ -152,8 +152,8 @@ var Schedule = {
         }
 
         //if fall has two cores and a blank spot, move coen12
-        if (numberOfCore("fall") == 2 && this.fall.length < 4)
-            moveCourse("COEN 12", "fall", "spring");
+        if (this.numberOfCore("fall") == 2 && this.fall.length < 4)
+            this.moveCourse("COEN 12", "fall", "spring");
     
         while (this.fall.length < 4) {
             this.fall.push(courses["Core"]);
