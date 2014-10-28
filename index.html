@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Incoming Student Interactive Scheduler [ ISIS ]</title>
+<!-- <base href="http://www.kabgames.com/" target="_blank"> defines base URL for site -->
+<script src="myscript.js"></script>
+<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<meta name="keywords" content="isis, first year scheduler, schedule, freshman, freshmen, incoming student interactive scheduler, Santa Clara, SCU, scu, Santa Clara University, Computer Science and Engineering, Web Design Majors">
+<meta name="description" content="This is a first year scheduler for incoming freshman to Santa Clara University for Computer Science and Engineering or Web Design Majors">
+<meta name="author" content="Kenneth Bigler">
+</head>
+<body onLoad="hideContent()">
+<nav>
+    <div id="n1" class="tab" onclick="showContentOne()">AP Credits</div>
+    <div id="n2" class="tab" onclick="showContentTwo()">Transfer Credits</div>
+    <div id="n3" class="tab" onclick="showContentThree()">Programming Experience</div>
+</nav>
+
+<div id="content1" class="scrollable content">
+    <p>AP Credit Options</p>
+    <div class="menu"><input type="checkbox" class="navpill" onclick="" /> Calucus BC </div>
+    <div class="menu">
+         <select>
+            <option> 5  </option>
+            <option> 4  </option>
+            <option> 3  </option>
+            <option> 2  </option>
+            <option> 1  </option>
+         </select>
+        <!--AP test box-->
+    </div>
+    <div class="menu"><input type="checkbox" class="navpill" onclick="" /> Calculus AB </div>
+    <div class="menu">   
+         <select>   
+            <option> 5  </option>
+            <option> 4  </option>
+            <option> 3  </option>
+            <option> 2  </option>
+            <option> 1  </option>
+         </select>
+        <!--AP test box-->
+    </div>
+    <div class="menu"><input type="checkbox" class="navpill" onclick="" /> Chemistry </div>
+    <div class="menu">
+         <select>
+            <option> 5  </option>
+            <option> 4  </option>
+            <option> 3  </option>
+            <option> 2  </option>
+            <option> 1  </option>
+         </select>
+        <!--AP test box-->
+    </div>
+    <div class="menu"><input type="checkbox" class="navpill" onclick=""  /> Computer Science A </div>
+    <div class="menu">
+         <select>
+            <option> 5  </option>
+            <option> 4  </option>
+            <option> 3  </option>
+            <option> 2  </option>
+            <option> 1  </option>
+         </select>
+        <!--AP test box-->
+    </div>
+    <div class="menu"><input type="checkbox" class="navpill" onclick="" /> Physics B</div>
+    <div class="menu">   
+         <select>
+            <option> 5  </option>
+            <option> 4  </option>
+            <option> 3  </option>
+            <option> 2  </option>
+            <option> 1  </option>
+         </select>
+        <!--AP test box-->
+    </div>
+    <div class="menu"><input type="checkbox" class="navpill" onclick="" /> Physics C: Mechanics</div>
+    <div class="menu">   
+         <select>
+            <option> 5  </option>
+            <option> 4  </option>
+            <option> 3  </option>
+            <option> 2  </option>
+            <option> 1  </option>
+         </select>
+        <!--AP test box-->
+    </div>
+    <div class="menu"><input type="checkbox" class="navpill" onclick="" /> Physics C: Electricity and Magnetism</div>
+    <div class="menu">   
+         <select>
+            <option> 5  </option>
+            <option> 4  </option>
+            <option> 3  </option>
+            <option> 2  </option>
+            <option> 1  </option>
+         </select>
+        <!--AP test box-->
+    </div>
+<!--/content1-->
+</div>
+
+<div id="content2" class="scrollable content">
+    <p>Transfer Credit Options</p>
+    <div class="menu"><input type="checkbox" class="navpill" onchange="" /> Math 11 </div>
+    <div class="menu"><input type="checkbox" class="navpill" onchange="" /> Math 12 </div>
+    <div class="menu"><input type="checkbox" class="navpill" onchange="" /> Math 13 </div>
+    <div class="menu"><input type="checkbox" class="navpill" onchange="" /> Phys 31 </div>
+    <div class="menu"><input type="checkbox" class="navpill" onchange="" /> Phys 32 </div>
+    <div class="menu"><input type="checkbox" class="navpill" onchange="" /> Chem 11 </div>
+    <div class="menu"><input type="checkbox" class="navpill" onchange="" /> Coen 10 </div>
+    <div class="menu"><input type="checkbox" class="navpill" onchange="" /> Coen 11 </div>
+<!--/content2-->
+</div>
+
+<div id="content3" class="scrollable content">
+    <p>Prgramming Experience Options</p>
+    <div class="menu">
+        <input type="radio" class="" onclick="" /> Yes, I have programming experience <br />
+        <input type="radio" class="" onclick="" /> No, I don't have programming experience <br />
+        <input type="radio" class="" onclick="" /> I don't know if I have programming experience and I want to take a quiz to find out<br />
+    </div>
+<!--/content3-->
+</div>
+
+<div id="schedule" class="schedule scrollable">
+    <p>This is a schedule</p>
+    <div class="courses" class="fall"> University Core (English I)</div>
+    <div class="courses" class="fall"> MATH 11 - Caluclus I</div>
+    <div class="courses" class="fall"> CHEM 11 - Chemistry I</div>
+    <div class="courses" class="fall"> COEN 10 - Intro to Programming</div>
+    <div class="courses" class="fall"> ENGR 1 - Intro to Engineering (2 credits)</div>
+    <!--Fall Quarter Classes-->
+    <div class="courses" class="winter"> University Core (English II)</div>
+    <div class="courses" class="winter"> MATH 12 - Calculus II</div>
+    <div class="courses" class="winter"> PHYS 31 - Physics I</div>
+    <div class="courses" class="winter"> COEN 11 - Advanced Programming</div>
+    <!--Winter Quarter Classes-->
+    <div class="courses" class="spring"> COEN 19 - Discrete Math</div>
+    <div class="courses" class="spring"> MATH 13 - Calculus III</div>
+    <div class="courses" class="spring"> PHYS 32 - Physics II</div>
+    <div class="courses" class="spring"> COEN 12 - Data Structures</div>
+<!--/schedule-->
+</div>
+
+<footer>
+    <div class="tab" onclick="hideContent()">Change Major</div>
+    <div class="tab" onclick="Print()">Print</div>
+    <div class="tab" onclick="hideContent()">Hide Options</div>
+</footer>
+
+</body>
+</html>
