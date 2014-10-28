@@ -242,13 +242,13 @@ var Schedule = {
         this.futureClasses.push(courses["COMM 2"]);
         this.futureClasses.push(courses["COMM 12"]);
         this.futureClasses.reverse();
-        debugger;
     
         this.fillHoles();
         this.addENGR1();
         this.print();
     },
 
+    //for debugging
     print: function() {
         var listOfClasses = "Fall: ";
         for (var i = 0; i < this.fall.length; i++)
