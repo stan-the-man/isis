@@ -47,13 +47,13 @@ div.tab {
 /*div.tab:hover {
 }*/
 div.current {
-	background-color:#8BF;
+	background-color:#9BF;
 	color: black;
 	/*border-top-right-radius: 1.5em;
 	border-top-left-radius: 1.5em;*/
 }
 footer {
-	background-color:#AFCC3A;
+	background-color:#F42;
 	position:absolute;
 	right:0em;
 	left:0em;
@@ -67,7 +67,7 @@ div.content {
 	left:0em;
 	top:3em;
 	height:20em;
-	background-color:#8BF;
+	background-color:#9BF;
 	padding: .5em;
 }
 div.schedule {
@@ -88,3 +88,69 @@ div.full {
 	bottom: 3em;
 	top: 3em;
 }
+.transfer {
+	display:block;
+	margin:auto;
+	width:400px;
+}
+
+.centered {
+	display:block;
+	margin: auto;
+	width: 400px;
+}
+
+.title {
+	margin-bottom: 10px;
+}
+
+.menu { 
+
+}
+
+.progLangExp {
+	padding: 20px;
+	/*background-color: white;*/
+}
+.courses { 
+	width: 200px;
+	height: 40px;
+	text-align: center;
+	margin: 3px;
+	border-radius: 10px;
+	padding: 4px;	
+}
+.fall { 
+	display:inline-block;
+	vertical-align: top;
+	margin-right: 10px;
+}
+.winter {
+	display:inline-block;
+	vertical-align:top;
+    margin-right: 10px;
+	}
+.spring {
+	vertical-align: top;
+	display:inline-block;
+		}
+.year { 
+	border: 2px solid black;
+	width:750px;
+	height:280px;
+	position: relative;
+	display: block;
+	margin: auto;
+	padding: 30px;
+}
+
+.stitle {
+	margin: 10px;
+}
+
+.engineering { 
+	background-color: lightgreen;} /* */
+.core { 
+	background-color: #FF917E;}
+.mathsci {
+	background-color: #D4E2FF;}
