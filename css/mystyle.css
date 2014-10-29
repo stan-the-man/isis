@@ -63,6 +63,7 @@ footer {
 }
 div.content {
 	position:absolute;
+	display: none;
 	right:0em;
 	left:0em;
 	top:3em;

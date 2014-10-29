@@ -9,22 +9,21 @@ ga('send', 'pageview');
 
 //this function will make all of the class selection divs disappear
 function hideContent() {
-	document.getElementById('content1').style.visibility='hidden';
-	document.getElementById('content2').style.visibility='hidden';
-	document.getElementById('content3').style.visibility='hidden';
-	document.getElementById('n1').className='tab';
-	document.getElementById('n2').className='tab';
-	document.getElementById('n3').className='tab';
-	document.getElementById('schedule').className='schedule full';
+	$('#content1, #content2, #content3').slideUp();
+	$('#n1, #n2, #n3').removeClass('current');
 }
 
 //this function will show content1 and hide the others
 //content1 tab will be set to active
 function showContentOne() {
-	document.getElementById('content1').style.visibility='visible';
-	document.getElementById('content2').style.visibility='hidden';
-	document.getElementById('content3').style.visibility='hidden';
-	document.getElementById('n1').className='tab current bounceInUp';
+	if(!$("#content1, #content2, #content3").is(":visible")) {
+		$("#content1").slideDown();
+	} else {
+		$("#content2, #content3").hide();
+		$("#content1").show();
+	}
+
+	document.getElementById('n1').className='tab current';
 	document.getElementById('n2').className='tab';
 	document.getElementById('n3').className='tab';
 	document.getElementById('schedule').className='schedule';
@@ -33,11 +32,15 @@ function showContentOne() {
 //this function will show content2 and hide the others
 //content2 tab will be set to active
 function showContentTwo() {
-	document.getElementById('content1').style.visibility='hidden';
-	document.getElementById('content2').style.visibility='visible';
-	document.getElementById('content3').style.visibility='hidden';
+	if(!$("#content1, #content2, #content3").is(":visible")) {
+		$("#content2").slideDown();
+	} else {
+		$("#content1, #content3").hide();
+		$("#content2").show();
+	}
+
 	document.getElementById('n1').className='tab';
-	document.getElementById('n2').className='tab current bounceInUp';
+	document.getElementById('n2').className='tab current';
 	document.getElementById('n3').className='tab';
 	document.getElementById('schedule').className='schedule';
 }
@@ -45,12 +48,16 @@ function showContentTwo() {
 //this function will show content2 and hide the others
 //content2 tab will be set to active
 function showContentThree() {
-	document.getElementById('content1').style.visibility='hidden';
-	document.getElementById('content2').style.visibility='hidden';
-	document.getElementById('content3').style.visibility='visible';
+	if(!$("#content1, #content2, #content3").is(":visible")) {
+		$("#content3").slideDown();
+	} else {
+		$("#content1, #content2").hide();
+		$("#content3").show();
+	}
+
 	document.getElementById('n1').className='tab';
 	document.getElementById('n2').className='tab';
-	document.getElementById('n3').className='tab current bounceInUp';
+	document.getElementById('n3').className='tab current';
 	document.getElementById('schedule').className='schedule';
 }
 
