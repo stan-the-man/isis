@@ -48,9 +48,14 @@ var Schedule = {
         } else if (level == 12) {
             this.requirements["MATH 11"] = true;
             this.requirements["MATH 12"] = true;
+        } else if (level == 13) {
+            this.requirements["MATH 11"] = true;
+            this.requirements["MATH 12"] = true;
+            this.requirements["MATH 13"] = true;
         } else {
             this.requirements["MATH 11"] = false;
             this.requirements["MATH 12"] = false;
+            this.requirements["MATH 13"] = false;
         }
     },
 
@@ -80,7 +85,6 @@ var Schedule = {
             this.requirements["PHYS 31"] = true;
             this.requirements["PHYS 33"] = false;
         } else if (level == 33) {
-            this.requirements["PHYS 31"] = true;
             this.requirements["PHYS 33"] = true;
         } else {
             this.requirements["PHYS 31"] = false;
@@ -166,7 +170,7 @@ var Schedule = {
         }
         
         //if fall has two cores and a blank spot, move coen12
-        if (this.numberOfCore("fall") == 2 && this.fall.length < 4)
+        if (this.numberOfCore("fall") == 2 && this.fall.length < 4 && this.requirements["COEN 11"])
             this.moveCourse("COEN 12", "fall", "spring");
         if ((this.numberOfCore("winter") >= 2 && this.winter.length < 4) || this.winter.length <= 2)
             this.winter.push(this.futureClasses.pop());
@@ -174,7 +178,7 @@ var Schedule = {
             this.spring.push(this.futureClasses.pop());
 
         //if fall has two cores and a blank spot, move coen12
-        if (this.numberOfCore("fall") == 2 && this.fall.length < 4)
+        if (this.numberOfCore("fall") == 2 && this.fall.length < 4 && this.requirements["COEN 11"])
             this.moveCourse("COEN 12", "fall", "spring");
     
         while (this.fall.length < 4) {
@@ -294,7 +298,7 @@ var Schedule = {
         $.each(this.fall, function(index, course) {
             var newCourse = document.createElement('div');
             newCourse.className = "courses " + course.subject;
-            newCourse.innerHTML = course.name;
+            newCourse.innerHTML = course.name + " - " + course.description;
             fallDiv.append(newCourse);
         });
 
@@ -303,7 +307,7 @@ var Schedule = {
         $.each(this.winter, function(index, course) {
             var newCourse = document.createElement('div');
             newCourse.className = "courses " + course.subject;
-            newCourse.innerHTML = course.name;
+            newCourse.innerHTML = course.name + " - " + course.description;
             winterDiv.append(newCourse);
         });
 
@@ -312,7 +316,7 @@ var Schedule = {
         $.each(this.spring, function(index, course) {
             var newCourse = document.createElement('div');
             newCourse.className = "courses " + course.subject;
-            newCourse.innerHTML = course.name;
+            newCourse.innerHTML = course.name + " - " + course.description;
             springDiv.append(newCourse);
         });
     }
