@@ -8,6 +8,7 @@
     <script src="myscript.js"></script>
     <script type="text/javascript" src="model/ListOfCourses.js"></script>
     <script type="text/javascript" src="model/CourseModel.js"></script>
+    <script type="text/javascript" src="initialize.js"></script>
     <link rel="stylesheet" type="text/css" href="css/mystyle.css">
     <meta name="keywords" content="isis, first year scheduler, schedule, freshman, freshmen, incoming student interactive scheduler, Santa Clara, SCU, scu, Santa Clara University, Computer Science and Engineering, Web Design Majors">
     <meta name="description" content="This is a first year scheduler for incoming freshman to Santa Clara University for Computer Science and Engineering or Web Design Majors">
@@ -22,8 +23,8 @@
 
 <div id="content1" class="scrollable content">
     <h3 class="title">AP Credit Options:</h3>
-    <div class="menu navpill"><input type="checkbox" onclick="" /> Calucus BC
-         <select>
+    <div class="menu navpill"><input type="checkbox" /> Calucus BC
+         <select class="math-12-input">
             <option>5</option>
             <option>4</option>
             <option>3</option>
@@ -33,7 +34,7 @@
         <!--AP test box-->
     </div>
     <div class="menu navpill"><input type="checkbox" onclick="" /> Calculus AB 
-         <select>   
+         <select class="math-11-input">   
             <option>5</option>
             <option>4</option>
             <option>3</option>
@@ -42,8 +43,18 @@
          </select>
         <!--AP test box-->
     </div>
-    <div class="menu navpill"><input type="checkbox" class="navpill" onclick="" /> Chemistry 
-         <select>
+    <div class="menu navpill"><input type="checkbox" class="navpill" /> Chemistry 
+         <select class="chem-11-input">
+            <option>5</option>
+            <option>4</option>
+            <option>3</option>
+            <option>2</option>
+            <option>1</option>
+         </sid>
+        <!--AP test box-->
+    </div> schedule-input
+    <div class="menu navpill"><input type="checkbox" class="navpill"  /> Computer Science A 
+         <select class="coen-10-input">
             <option>5</option>
             <option>4</option>
             <option>3</option>
@@ -52,8 +63,8 @@
          </select>
         <!--AP test box-->
     </div>
-    <div class="menu navpill"><input type="checkbox" class="navpill" onclick=""  /> Computer Science A 
-         <select>
+    <div class="menu navpill"><input type="checkbox" class="navpill" /> Physics B
+         <select class="phys-31-input">
             <option>5</option>
             <option>4</option>
             <option>3</option>
@@ -62,8 +73,8 @@
          </select>
         <!--AP test box-->
     </div>
-    <div class="menu navpill"><input type="checkbox" class="navpill" onclick="" /> Physics B
-         <select>
+    <div class="menu navpill"><input type="checkbox" class="navpill" /> Physics C: Mechanics
+         <select class="phys-32-input">
             <option>5</option>
             <option>4</option>
             <option>3</option>
@@ -72,18 +83,8 @@
          </select>
         <!--AP test box-->
     </div>
-    <div class="menu navpill"><input type="checkbox" class="navpill" onclick="" /> Physics C: Mechanics
-         <select>
-            <option>5</option>
-            <option>4</option>
-            <option>3</option>
-            <option>2</option>
-            <option>1</option>
-         </select>
-        <!--AP test box-->
-    </div>
-    <div class="menu navpill"><input type="checkbox" class="navpill" onclick="" /> Physics C: Electricity and Magnetism
-         <select>
+    <div class="menu navpill"><input type="checkbox" class="navpill" /> Physics C: Electricity and Magnetism
+         <select class="phys-33-input">
             <option>5</option>
             <option>4</option>
             <option>3</option>
@@ -98,14 +99,14 @@
 <div id="content2" class="scrollable content">
     <div class="transfer">
         <h3 class="title">Transfer Credit Options: </h3>
-        <div class="centered"><input type="checkbox" class="navpill" onchange="" /> Math 11 </div>
-        <div class="centered"><input type="checkbox" class="navpill" onchange="" /> Math 12 </div>
-        <div class="centered"><input type="checkbox" class="navpill" onchange="" /> Math 13 </div>
-        <div class="centered"><input type="checkbox" class="navpill" onchange="" /> Phys 31 </div>
-        <div class="centered"><input type="checkbox" class="navpill" onchange="" /> Phys 32 </div>
-        <div class="centered"><input type="checkbox" class="navpill" onchange="" /> Chem 11 </div>
-        <div class="centered"><input type="checkbox" class="navpill" onchange="" /> Coen 10 </div>
-        <div class="centered"><input type="checkbox" class="navpill" onchange="" /> Coen 11 </div>
+        <div class="centered"><input type="checkbox" class="navpill math-11-input" /> Math 11 </div>
+        <div class="centered"><input type="checkbox" class="navpill math-12-input" /> Math 12 </div>
+        <div class="centered"><input type="checkbox" class="navpill math-13-input" /> Math 13 </div>
+        <div class="centered"><input type="checkbox" class="navpill phys-31-input" /> Phys 31 </div>
+        <div class="centered"><input type="checkbox" class="navpill phys-32-input" /> Phys 32 </div>
+        <div class="centered"><input type="checkbox" class="navpill chem-11-input" /> Chem 11 </div>
+        <div class="centered"><input type="checkbox" class="navpill coen-10-input" /> Coen 10 </div>
+        <div class="centered"><input type="checkbox" class="navpill coen-11-input" /> Coen 11 </div>
     </div>
 <!--/content2-->
 </div>
@@ -115,9 +116,9 @@
     <div class="progLangExp centered">
         <h3 class="centered title">Programming Experience Options:</h3>
         <form action="" class="centered">
-            <input type="radio" name="progexp" class="" onclick="" value="yes" /> Yes, I have programming experience <br />
-            <input type="radio" name="progexp" class="" onclick="" value="no" /> No, I don't have programming experience <br />
-            <input type="radio" name="progexp" class="" onclick="" value="idk" /> I don't know if I have programming experience
+            <input type="radio" name="progexp" class="coen-10-input" value="yes" /> Yes, I have programming experience <br />
+            <input type="radio" name="progexp" class="coen-10-input" value="no" /> No, I don't have programming experience <br />
+            <input type="radio" name="progexp" value="idk" /> I don't know if I have programming experience
         </form>
     </div>
 <!--/content3-->
@@ -129,7 +130,7 @@
 <div id="schedule" class="schedule">
     <h3>This is a schedule</h3>
     <div class="year">
-        <div class="fall"> Fall
+        <div id="fall"> Fall
             <div class="courses core"> University Core (English I)</div>
             <div class="courses mathsci"> MATH 11 - Caluclus I</div>
             <div class="courses mathsci"> CHEM 11 - Chemistry I</div>
@@ -137,14 +138,14 @@
             <div class="courses engineering" id="engr1"> ENGR 1 - Intro to Engineering (2 credits)</div>
             <!--Fall Quarter Classes-->
         </div>
-        <div class="winter"> Winter
+        <div id="winter"> Winter
             <div class="courses core"> University Core (English II)</div>
             <div class="courses mathsci"> MATH 12 - Calculus II</div>
             <div class="courses mathsci"> PHYS 31 - Physics I</div>
             <div class="courses engineering"> COEN 11 - Advanced Programming</div>
             <!--Winter Quarter Classes-->
         </div>
-            <div class="spring"> Spring
+            <div id="spring"> Spring
             <div class="courses mathsci"> COEN 19 - Discrete Math</div>
             <div class="courses mathsci"> MATH 13 - Calculus III</div>
             <div class="courses mathsci"> PHYS 32 - Physics II</div>
@@ -159,7 +160,7 @@
 
 
 <footer>
-    <div class="tab" onclick="hideContent()">Change Major</div>
+    <div id="change-major" class="tab">Change Major</div>
     <div class="tab" onclick="Print()">Print</div>
     <div class="tab" onclick="hideContent()">Hide Options</div>
 </footer>

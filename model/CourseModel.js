@@ -3,14 +3,25 @@ var Schedule = {
     winter: [],
     spring: [],
     requirements: {
-        "Natural Science" : true,
-        "MATH 11" : true,
-        "MATH 12" : true,
-        "CHEM 11" : true,
-        "COEN 10" : true,
-        "COEN 11" : true,
-        "PHYS 31" : true,
-        "PHYS 33" : true  
+        "Natural Science" : false,
+        "MATH 11" : false,
+        "MATH 12" : false,
+        "CHEM 11" : false,
+        "COEN 10" : false,
+        "COEN 11" : false,
+        "PHYS 31" : false,
+        "PHYS 33" : false  
+    },
+    currentMajor: "coen",
+
+    changeMajor: function() {
+        if(this.currentMajor == 'coen') {
+            this.currentMajor = 'web';
+            this.web();
+        } else {
+            this.currentMajor = 'coen';
+            this.coen();
+        }
     },
 
     reset: function() {
@@ -51,7 +62,7 @@ var Schedule = {
         this.requirements["CHEM 11"] = has;
     },
 
-    setCoen: function(credit) {
+    setCoen: function(level) {
         if (level == 10) {
             this.requirements["COEN 10"] = true;
             this.requirements["COEN 11"] = false;
@@ -227,7 +238,7 @@ var Schedule = {
     
         this.fillHoles();
         this.addENGR1();
-        this.print();
+        // this.print();
     },
 
     web: function() {
@@ -245,7 +256,7 @@ var Schedule = {
     
         this.fillHoles();
         this.addENGR1();
-        this.print();
+        // this.print();
     },
 
     //for debugging
@@ -261,4 +272,48 @@ var Schedule = {
             listOfClasses += this.spring[i].name + " ";
         alert(listOfClasses);
     },
+
+    update: function() {
+        var i;
+        var fallDiv = $('#fall');
+        var winterDiv = $('#winter');
+        var springDiv = $('#spring');
+
+        fallDiv.html("Fall");
+        winterDiv.html("Winter");
+        springDiv.html("Spring");
+
+        if(this.currentMajor == 'coen') {
+            this.coen();
+        } else {
+            this.web();
+        }
+
+        // populate the fall courses
+        //
+        $.each(this.fall, function(index, course) {
+            var newCourse = document.createElement('div');
+            newCourse.className = "courses " + course.subject;
+            newCourse.innerHTML = course.name;
+            fallDiv.append(newCourse);
+        });
+
+        // populate the winter courses
+        //
+        $.each(this.winter, function(index, course) {
+            var newCourse = document.createElement('div');
+            newCourse.className = "courses " + course.subject;
+            newCourse.innerHTML = course.name;
+            winterDiv.append(newCourse);
+        });
+
+        // populate the spring courses
+        //
+        $.each(this.spring, function(index, course) {
+            var newCourse = document.createElement('div');
+            newCourse.className = "courses " + course.subject;
+            newCourse.innerHTML = course.name;
+            springDiv.append(newCourse);
+        });
+    }
 };
