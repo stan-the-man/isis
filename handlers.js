@@ -156,6 +156,16 @@ $(document).ready(function() {
     Schedule.update();
   });
 
+  $('.coen-10-input-radio').change(function() {
+    if($("input[name=progexp]:checked").val() == 'yes') {
+      Schedule.setCoen(10);
+    } else {
+      Schedule.setCoen();
+    }
+
+    Schedule.update();
+  });
+
   // COEN 11 transfer credit handler
   //
   $('#coen-11-input-transfer').change(function() {
