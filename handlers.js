@@ -86,7 +86,7 @@ $(document).ready(function() {
       return;
     } else if(checkAP('math-12', 4) || checkTransfer('math-12')) {
       Schedule.setMath(12);
-    } else if(checkTransfer('math-11') || checkAP('math-11', 3)) {
+    } else if(checkTransfer('math-11') || checkAP('math-11', 4) || checkAP('math-12', 3)) {
       Schedule.setMath(11);
     } else {
       Schedule.setMath();
