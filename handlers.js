@@ -155,12 +155,10 @@ $(document).ready(function() {
   $('.coen-10-input-radio').change(function() {
     if(checkRadio("progexp")) {
       Schedule.setCoen(10);
-    } else {
-      if(checkAP('coen-10') || checkTransfer('coen-10')) {
+    } else if(checkAP('coen-10') || checkTransfer('coen-10')) {
         return;
-      } else {
-        Schedule.setCoen();
-      }
+    } else {
+      Schedule.setCoen();
     }
 
     Schedule.update();
@@ -179,11 +177,13 @@ $(document).ready(function() {
     Schedule.update();
   });
 
-  // Chem 11 transfer credit handler
+  // CHEM 11 transfer credit handler
   //
   $('#chem-11-input-transfer').change(function() {
     if(this.checked) {
       Schedule.setChemistry(true);   
+    } else if(checkAP('chem-11')) {
+      return;
     } else {
       Schedule.setChemistry(false);
     }
@@ -194,23 +194,11 @@ $(document).ready(function() {
 
   // Chem 11 AP credit handler
   //
-  $('#chem-11-input-ap').change(function() {
-    $('#chem-11-select').removeAttr('disabled');
-    if(this.checked && parseInt($('#chem-11-select').val()) >= 4) {
+  $('#chem-11-input-ap, #chem-11-select').change(function() {
+    if(checkAP('chem-11')) {
       Schedule.setChemistry(true);
-    } else {
-      $('#chem-11-select').attr('disabled', 'disabled');
-      Schedule.setChemistry(false);
-    }
-
-    Schedule.update();
-  });
-
-  // Chem 11 AP score handler
-  //
-  $('#chem-11-select').change(function() {
-    if(this.value >= 4) {
-      Schedule.setChemistry(true); 
+    } else if(checkTransfer('chem-11')) {
+      return;
     } else {
       Schedule.setChemistry(false);
     }
@@ -233,37 +221,22 @@ $(document).ready(function() {
 
   // PHYS 31 AP credit handler
   //
-  $('#phys-31-input-ap').change(function() {
-    $('#phys-31-select').removeAttr('disabled');
-    if(this.checked && parseInt($('#phys-31-select').val()) >= 4) {
+  $('#phys-31-input-ap, #phys-31-select').change(function() {
+    if(checkAP('phys-31')) {
       Schedule.setPhysics(31);
+    } else if(checkTransfer('phys-31')) {
+      return;
     } else {
-      $('#phys-31-select').attr('disabled', 'disabled');
-      if($('#phys-33-input-ap').prop('checked') && parseInt($('#phys-33-select').val()) >= 4) {
-        Schedule.setPhysics();
-        Schedule.setPhysics(33);
-      } else {
-        Schedule.setPhysics();
-      }
+      Schedule.setPhysics();
     }
 
     Schedule.update();
   });
 
-  // PHYS 31 AP score handler
-  //
-  $('#phys-31-select').change(function() {
-    if(this.value >= 4) {
-      Schedule.setPhysics(31);
-    } else {
-      Schedule.setPhysics();
-    }
-  });
 
   // PHYS 33 transfer credit handler
   //
   $('#phys-32-input-transfer').change(function() {
-    var phys31 = $()
     if(this.checked) {
       $('#phys-31-input-transfer').prop('checked', true);
       Schedule.setPhysics(32);
@@ -276,30 +249,11 @@ $(document).ready(function() {
 
   // PHYS 33 AP credit handler
   //
-  $('#phys-33-input-ap').change(function() {
-    $('#phys-33-select').removeAttr('disabled');
-    if(this.checked && parseInt($('#phys-33-select').val()) >= 4) {
-      Schedule.setPhysics(33);
+  $('#phys-33-input-ap, #phys-33-select').change(function() {
+    if(checkAP('phys-33')) {
+      Schedule.setPhysics(33, true);
     } else {
-      $('#phys-33-select').attr('disabled', 'disabled');
-      if($('#phys-31-select').prop('checked') && parseInt($('#phys-31-select').val()) >= 4) {
-        Schedule.setPhysics(31);
-        Schedule.setPhysics(33);
-      } else {
-        Schedule.setPhysics();
-      }
-    }
-
-    Schedule.update();
-  });
-
-  // PHYS 33 AP score handler
-  //
-  $('#phys-33-select').change(function() {
-    if(this.value >= 4) {
-      Schedule.setPhysics(33);
-    } else {
-      Schedule.setPhysics();
+      Schedule.setPhysics(33, false);
     }
 
     Schedule.update();

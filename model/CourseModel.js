@@ -85,7 +85,7 @@ var Schedule = {
         }
     },
 
-    setPhysics: function(level) {
+    setPhysics: function(level, set) {
         if (level == 31) {
             this.requirements["PHYS 31"] = true;
             this.requirements["PHYS 32"] = false;
@@ -93,9 +93,9 @@ var Schedule = {
         } else if (level == 32) {
             this.requirements["PHYS 31"] = true;
             this.requirements["PHYS 32"] = true;
+        } else if (level == 33 && !set) {
+            this.requirements["PHYS 33"] = false;
         } else if (level == 33) {
-            this.requirements["PHYS 31"] = true;
-            this.requirements["PHYS 32"] = true;
             this.requirements["PHYS 33"] = true;
         } else {
             this.requirements["PHYS 31"] = false;
@@ -247,7 +247,7 @@ var Schedule = {
             this.winter.push(courses["PHYS 31"]);
         if(this.requirements["PHYS 32"] == false)
             this.spring.push(courses["PHYS 32"]);
-        if(this.requirements["PHYS 31"] && this.requirements["PHYS 32"] && this.fall.length < 4)
+        if(this.requirements["PHYS 31"] && this.requirements["PHYS 32"] && !this.requirements["PHYS 33"] && this.fall.length < 4)
             this.fall.push(courses["PHYS 33"]);
 
         //COEN 19
