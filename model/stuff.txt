@@ -1,0 +1,37 @@
+Calculus AB 4 	= Math 11
+Calculus AB 5 	= Math 11
+Calculus BC 3	= Math 11
+Calculus BC 4 	= Math 11 & 12
+Calculus BC 5 	= Math 11 & 12
+Chemistry 3 		= Chem 11 or natural science
+Chemistry 4		= Chem 11 & 12 or natural science
+Chemistry 5		= Chem 11 & 12 or natural science
+CS A 3		= COEN 10, 10L 
+CS A 4		= COEN 10, 10L & 11, 11L
+CS A 5		= COEN 10, 10L & 11, 11L
+Physics C Mech 4 	= PHYS 31
+Physics C Mech 5 	= PHYS 31
+Physics C Electricity 4 = PHYS 33
+Physics C Electricity 5 = PHYS 33 or natural science
+AP Env Science 4	= natural science
+AP Env Science 5	= natural science
+
+IB Chemistry 6	= CHEM 11 or natural science
+IB Chemistry 7	= CHEM 11 or natural science
+IB CS 6		= COEN 10, 10L & 11, 11L
+IB CS 7		= COEN 10, 10L & 11, 11L
+IB Physics 6		= natural science
+IB Physics 7		= natural science
+
+calculus readiness exam: only if you’re going to take MATH 11 (I guess to make sure you don’t need to take MATH 9)
+
+math track for COEN: 11, 12, 13, 14, AMTH 106 &  AMTH 108
+science track for COEN: CHEM 11, PHYS 31, PHYS 32, PHYS 33 (all have labs)
+coen track for COEN: COEN 10, COEN 11, COEN 12 (take in spring),
+COEN 19 in spring, CTW fall and winter
+
+math track for WDE: MATH 11, MATH 12, MATH 13, MATH 14, AMTH 108 OR MATH 122
+coen track for WDE: COEN 10, COEN 11, COEN 12 (take in spring)
+natural science in the fall
+ctw fall and winter
+C&I winter and spring
