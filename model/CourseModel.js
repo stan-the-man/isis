@@ -6,10 +6,12 @@ var Schedule = {
         "Natural Science" : false,
         "MATH 11" : false,
         "MATH 12" : false,
+        "MATH 13" : false,
         "CHEM 11" : false,
         "COEN 10" : false,
         "COEN 11" : false,
         "PHYS 31" : false,
+        "PHYS 32" : false,
         "PHYS 33" : false  
     },
     currentMajor: "coen",
@@ -36,7 +38,8 @@ var Schedule = {
         courses["MATH 12"], 
         courses["MATH 13"], 
         courses["MATH 14"], 
-        courses["AMTH 108"]
+        courses["AMTH 108"],
+        courses["MATH 53"]
     ],
     
     futureClasses: [],
@@ -45,9 +48,11 @@ var Schedule = {
         if (level == 11) {
             this.requirements["MATH 11"] = true;
             this.requirements["MATH 12"] = false;
+            this.requirements["MATH 13"] = false;
         } else if (level == 12) {
             this.requirements["MATH 11"] = true;
             this.requirements["MATH 12"] = true;
+            this.requirements["MATH 13"] = false;
         } else if (level == 13) {
             this.requirements["MATH 11"] = true;
             this.requirements["MATH 12"] = true;
@@ -83,11 +88,18 @@ var Schedule = {
     setPhysics: function(level) {
         if (level == 31) {
             this.requirements["PHYS 31"] = true;
+            this.requirements["PHYS 32"] = false;
             this.requirements["PHYS 33"] = false;
+        } else if (level == 32) {
+            this.requirements["PHYS 31"] = true;
+            this.requirements["PHYS 32"] = true;
         } else if (level == 33) {
+            this.requirements["PHYS 31"] = true;
+            this.requirements["PHYS 32"] = true;
             this.requirements["PHYS 33"] = true;
         } else {
             this.requirements["PHYS 31"] = false;
+            this.requirements["PHYS 33"] = false;
             this.requirements["PHYS 33"] = false;
         }
     },
@@ -201,12 +213,15 @@ var Schedule = {
     
         //Math
         var studentMathTrack;
-        if (this.requirements["MATH 11"] == true && this.requirements["MATH 12"] == false)
-            studentMathTrack = this.mathTrack.slice(1);
-        else if (this.requirements["MATH 11"] == true && this.requirements["MATH 12"] == true)
+        if(this.requirements["MATH 13"] && this.requirements["MATH 12"] && this.requirements["MATH 11"]) {
+            studentMathTrack = this.mathTrack.slice(3);
+        } else if(this.requirements["MATH 11"] && this.requirements["MATH 12"]) {
             studentMathTrack = this.mathTrack.slice(2);
-        else
+        } else if(this.requirements["MATH 11"]) {
+            studentMathTrack = this.mathTrack.slice(1);
+        } else {
             studentMathTrack = this.mathTrack.slice(0);
+        }
 
         studentMathTrack.reverse();
         this.fall.push(studentMathTrack.pop());
@@ -230,7 +245,10 @@ var Schedule = {
             this.fall.push(courses["CHEM 11"]);
         if (this.requirements["PHYS 31"] == false)
             this.winter.push(courses["PHYS 31"]);
-        this.spring.push(courses["PHYS 32"]);
+        if(this.requirements["PHYS 32"] == false)
+            this.spring.push(courses["PHYS 32"]);
+        if(this.requirements["PHYS 31"] && this.requirements["PHYS 32"] && this.fall.length < 4)
+            this.fall.push(courses["PHYS 33"]);
 
         //COEN 19
         this.spring.push(courses["COEN 19"]);
@@ -242,7 +260,6 @@ var Schedule = {
     
         this.fillHoles();
         this.addENGR1();
-        // this.print();
     },
 
     web: function() {
