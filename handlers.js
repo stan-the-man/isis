@@ -120,10 +120,19 @@ $(document).ready(function() {
   //
   $('#coen-10-input-transfer').change(function() {
     if(this.checked) {
-      Schedule.setCoen(10);
+      if(checkAP('coen-10') || checkRadio("progexp")) {
+        return;
+      } else {
+        Schedule.setCoen(10);
+      }
     } else {
       $('#coen-11-input-transfer').prop('checked', false);
-      Schedule.setCoen();
+
+      if(checkAP('coen-10') || checkRadio("progexp")) {
+        return;
+      } else {
+        Schedule.setCoen();
+      }
     }
 
     Schedule.update();
@@ -131,24 +140,11 @@ $(document).ready(function() {
 
   // COEN 10 AP credit handler
   //
-  $('#coen-10-input-ap').change(function() {
-    $('#coen-10-select').removeAttr('disabled');
-    if(this.checked && parseInt($('#coen-10-select').val()) >= 4) {
-      $('#coen-10-input-ap').prop('checked', true);
+  $('#coen-10-input-ap, #coen-10-select').change(function() {
+    if(checkAP('coen-10')) {
       Schedule.setCoen(10);
-    } else {
-      $('#coen-10-select').attr('disabled', 'disabled');
-      Schedule.setCoen();
-    }
-
-    Schedule.update();
-  });
-
-  // COEN 10 AP score handler
-  //
-  $('#coen-10-select').change(function() {
-    if(this.value >= 4) {
-      Schedule.setCoen(10);
+    } else if(checkTransfer('coen-10') || checkRadio("progexp")) {
+      return;       // if the transfer credit is checked, or they have progexp, don't change anything
     } else {
       Schedule.setCoen();
     }
@@ -157,10 +153,14 @@ $(document).ready(function() {
   });
 
   $('.coen-10-input-radio').change(function() {
-    if($("input[name=progexp]:checked").val() == 'yes') {
+    if(checkRadio("progexp")) {
       Schedule.setCoen(10);
     } else {
-      Schedule.setCoen();
+      if(checkAP('coen-10') || checkTransfer('coen-10')) {
+        return;
+      } else {
+        Schedule.setCoen();
+      }
     }
 
     Schedule.update();
@@ -321,6 +321,14 @@ function checkTransfer(subject) {
 
 function checkAP(subject) {
   if($("#" + subject + '-input-ap').prop('checked') && $('#' + subject +'-select').val() >= 4) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function checkRadio(subject) {
+  if($("input[name=" + subject + "]:checked").val() == 'yes') {
     return true;
   } else {
     return false;
