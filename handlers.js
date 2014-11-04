@@ -5,6 +5,15 @@ $(document).ready(function() {
   Schedule.coen();
   Schedule.update();
 
+  $('#reset').click(function() {
+    Schedule.reset();
+    Schedule.resetReq();
+    Schedule.coen();
+    Schedule.update();
+    $('input').removeAttr('checked');
+    $('select').val('5');
+  });
+
   // Math 11 transfer credit handler
   //
   $('#math-11-input-transfer').change(function() {

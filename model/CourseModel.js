@@ -33,6 +33,21 @@ var Schedule = {
         this.futureClasses = [];
     },
 
+    resetReq: function() {
+        this.requirements = {
+            "Natural Science" : false,
+            "MATH 11" : false,
+            "MATH 12" : false,
+            "MATH 13" : false,
+            "CHEM 11" : false,
+            "COEN 10" : false,
+            "COEN 11" : false,
+            "PHYS 31" : false,
+            "PHYS 32" : false,
+            "PHYS 33" : false  
+        };
+    },
+
     mathTrack: [
         courses["MATH 11"], 
         courses["MATH 12"], 
