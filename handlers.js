@@ -26,8 +26,10 @@ $(document).ready(function() {
     } else {
       $('#math-12-input-transfer, #math-13-input-transfer').prop('checked', false);
 
-      if(checkAP('math-11', 4) || checkAP('math-12', 3)) {
-        return; // if we have AP credit we return
+      if(checkAP('math-12', 4)) {
+        Schedule.setMath(12);
+      } else if(checkAP('math-11', 4) || checkAP('math-12', 3)) {
+        Schedule.setMath(11);
       } else {
         Schedule.setMath();
       }
@@ -203,7 +205,7 @@ $(document).ready(function() {
   // PHYS 31 transfer credit handler
   //
   $('#phys-31-input-transfer').change(function() {
-    if(this.checked) {
+    if(this.checked || checkAP('phys-31', 4)) {
       Schedule.setPhysics(31);
     } else {
       $('#phys-32-input-transfer').prop('checked', false);
