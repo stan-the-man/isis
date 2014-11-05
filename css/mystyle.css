@@ -86,13 +86,11 @@ div.full {
 .transfer {
 	display:block;
 	margin:auto;
-	width:400px;
 }
 
 .centered {
 	display:block;
 	margin: auto;
-	width: 400px;
 }
 
 .title {
@@ -144,8 +142,38 @@ div.full {
 }
 
 .engineering { 
-	background-color: lightgreen;} /* */
+	background-color: lightgreen;
+}
 .core { 
-	background-color: #FF917E;}
+	background-color: #FF917E;
+}
 .mathsci {
-	background-color: #D4E2FF;}
+	background-color: #D4E2FF;
+}
+div.navpill{
+	min-height: 2em;
+	float:left;
+	max-width:10em;
+	background-color:white;
+	text-align:center;
+	padding-left:.625em;
+	padding-right:.625em;
+	margin:.3125em;
+	margin-bottom:.625em;
+	overflow:visible;
+	border-radius:.3125em;
+	-moz-box-shadow: 1px 5px 10px #888;
+	-webkit-box-shadow: 1px 5px 10px #888;
+	box-shadow: 1px 5px 10px #888;
+}
+div.lh {
+	line-height: 2em;
+}
+div.long {
+	max-width:50%; 
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+div.block {
+	float: none;
+}
