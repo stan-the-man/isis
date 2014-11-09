@@ -1,0 +1,163 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background-color:white;
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+}
+h1 {
+	text-align:center;
+}
+h3 {
+	text-shadow: 1px 1px #888;
+}
+input {
+	cursor:pointer;
+	cursor:hand;
+}
+label {
+	cursor:pointer;
+	cursor:hand;
+}
+.link {
+	cursor:pointer;
+	cursor:hand;
+}
+button {
+	cursor:pointer;
+	cursor:hand;
+}
+div.scrollable {
+	overflow:auto;
+}
+nav {
+	background-color:black;
+	text-align:center;
+	height:3em;
+	position:relative;
+	top:0em;
+	left:0em;
+	right:0em;
+	overflow:visible;
+}
+div.tab {
+	color: white;
+	width: 33.33%;
+	float: left;
+	text-align: center;
+	line-height: 3em;
+	height: 3em;
+	overflow: visible;
+	cursor:pointer;
+	cursor:hand;
+	text-shadow: 1px 1px #888;
+}
+/*div.tab:hover {
+}*/
+div.current {
+	background-color:#9BF;
+	color: black;
+	/*border-top-right-radius: 1.5em;
+	border-top-left-radius: 1.5em;*/
+}
+footer {
+	background-color:#F42;
+	position:absolute;
+	right:0em;
+	left:0em;
+	bottom:0em;
+	height:3em;
+	text-align:center;
+}
+div.content {
+	position:relative;
+	display: none;
+	height:15em;
+	background-color:#9BF;
+	padding: .5em;
+}
+div.schedule {
+	text-align: center;
+	position: relative;
+}
+div.content::-webkit-scrollbar {
+	display:none;
+}
+div.full {
+	position: relative;
+	right: 0em;
+	left: 0em;
+	bottom: 3em;
+	top: 3em;
+}
+div.centered {
+	display:block;
+	margin: auto;
+}
+div.courses { 
+	width: 200px;
+	height: 40px;
+	text-align: center;
+	border-radius: 10px;
+	padding: 4px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-shadow: 1px 1px #888;
+	-moz-box-shadow: 1px 5px 10px #888;
+	-webkit-box-shadow: 1px 5px 10px #888;
+	box-shadow: 1px 5px 10px #888;
+}
+#fall { 
+	display:inline-block;
+	vertical-align: top;
+	margin-right: 10px;
+}
+#winter {
+	display:inline-block;
+	vertical-align:top;
+    margin-right: 10px;
+}
+#spring {
+	vertical-align: top;
+	display:inline-block;
+}
+div.year { 
+	border: 2px solid black;
+	border-radius: 20px;
+	width:750px;
+	height:300px;
+	position: relative;
+	display: block;
+	margin: auto;
+	padding: 30px;
+	-moz-box-shadow: 1px 5px 10px #888;
+	-webkit-box-shadow: 1px 5px 10px #888;
+	box-shadow: 1px 5px 10px #888;
+}
+div.engineering { 
+	background-color: lightgreen;
+}
+div.core { 
+	background-color: #FF917E;
+}
+div.mathsci {
+	background-color: #D4E2FF;
+}
+div.navpill{
+	min-height: 2em;
+	float:left;
+	max-width:20em;
+	background-color:white;
+	line-height: 2em;
+	text-align:center;
+	padding-left:.625em;
+	padding-right:.625em;
+	margin:.3125em;
+	margin-bottom:.625em;
+	overflow:visible;
+	border-radius:.3125em;
+	-moz-box-shadow: 1px 5px 10px #888;
+	-webkit-box-shadow: 1px 5px 10px #888;
+	box-shadow: 1px 5px 10px #888;
+}
