@@ -4,16 +4,23 @@
 body {
 	background-color:white;
 	margin: 0;
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-family: 'Open Sans', sans-serif;
 }
 h1 {
 	text-align:center;
+}
+h3 {
+	text-shadow: 1px 1px #888;
 }
 input {
 	cursor:pointer;
 	cursor:hand;
 }
 label {
+	cursor:pointer;
+	cursor:hand;
+}
+.link {
 	cursor:pointer;
 	cursor:hand;
 }
@@ -44,6 +51,7 @@ div.tab {
 	overflow: visible;
 	cursor:pointer;
 	cursor:hand;
+	text-shadow: 1px 1px #888;
 }
 /*div.tab:hover {
 }*/
@@ -83,35 +91,22 @@ div.full {
 	bottom: 3em;
 	top: 3em;
 }
-.transfer {
-	display:block;
-	margin:auto;
-}
-
-.centered {
+div.centered {
 	display:block;
 	margin: auto;
 }
-
-.title {
-	margin-bottom: 10px;
-}
-
-.menu { 
-
-}
-
-.progLangExp {
-	padding: 20px;
-	/*background-color: white;*/
-}
-.courses { 
+div.courses { 
 	width: 200px;
 	height: 40px;
 	text-align: center;
-	margin: 3px;
 	border-radius: 10px;
-	padding: 4px;	
+	padding: 4px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-shadow: 1px 1px #888;
+	-moz-box-shadow: 1px 5px 10px #888;
+	-webkit-box-shadow: 1px 5px 10px #888;
+	box-shadow: 1px 5px 10px #888;
 }
 #fall { 
 	display:inline-block;
@@ -122,39 +117,39 @@ div.full {
 	display:inline-block;
 	vertical-align:top;
     margin-right: 10px;
-	}
+}
 #spring {
 	vertical-align: top;
 	display:inline-block;
-		}
-.year { 
+}
+div.year { 
 	border: 2px solid black;
+	border-radius: 20px;
 	width:750px;
-	height:280px;
+	height:300px;
 	position: relative;
 	display: block;
 	margin: auto;
 	padding: 30px;
+	-moz-box-shadow: 1px 5px 10px #888;
+	-webkit-box-shadow: 1px 5px 10px #888;
+	box-shadow: 1px 5px 10px #888;
 }
-
-.stitle {
-	margin: 10px;
-}
-
-.engineering { 
+div.engineering { 
 	background-color: lightgreen;
 }
-.core { 
+div.core { 
 	background-color: #FF917E;
 }
-.mathsci {
+div.mathsci {
 	background-color: #D4E2FF;
 }
 div.navpill{
 	min-height: 2em;
 	float:left;
-	max-width:10em;
+	max-width:20em;
 	background-color:white;
+	line-height: 2em;
 	text-align:center;
 	padding-left:.625em;
 	padding-right:.625em;
@@ -165,15 +160,4 @@ div.navpill{
 	-moz-box-shadow: 1px 5px 10px #888;
 	-webkit-box-shadow: 1px 5px 10px #888;
 	box-shadow: 1px 5px 10px #888;
-}
-div.lh {
-	line-height: 2em;
-}
-div.long {
-	max-width:50%; 
-	margin-left: auto !important;
-	margin-right: auto !important;
-}
-div.block {
-	float: none;
 }

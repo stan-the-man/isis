@@ -10,6 +10,7 @@
     <script type="text/javascript" src="model/CourseModel.js"></script>
     <script type="text/javascript" src="handlers.js"></script>
     <link rel="stylesheet" type="text/css" href="css/mystyle.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <meta name="keywords" content="isis, first year scheduler, schedule, freshman, freshmen, incoming student interactive scheduler, Santa Clara, SCU, scu, Santa Clara University, Computer Science and Engineering, Web Design Majors">
     <meta name="description" content="This is a first year scheduler for incoming freshman to Santa Clara University for Computer Science and Engineering or Web Design Majors">
     <meta name="author" content="Kenneth Bigler">
@@ -22,8 +23,9 @@
 </nav>
 
 <div id="content1" class="scrollable content">
-    <div class="menu navpill lh" id="math-11-input-ap"/> Calculus AB 
-        <select id="math-11-select">   
+    <div class="navpill" id="math-11-input-ap"/> Calculus AB
+        <select id="math-11-select">
+            <option disabled selected>&nbsp;</option>
             <option>5</option>
             <option>4</option>
             <option>3</option>
@@ -32,8 +34,9 @@
         </select>
         <!--AP test box-->
     </div>
-    <div class="menu navpill lh" id="math-12-input-ap"/> Calculus BC
+    <div class="navpill" id="math-12-input-ap"/> Calculus BC
          <select id="math-12-select">
+            <option disabled selected>&nbsp;</option>
             <option>5</option>
             <option>4</option>
             <option>3</option>
@@ -42,8 +45,9 @@
          </select>
         <!--AP test box-->
     </div>
-    <div class="menu navpill lh" id="chem-11-input-ap"/> Chemistry 
+    <div class="navpill" id="chem-11-input-ap"/> Chemistry 
          <select id="chem-11-select">
+            <option disabled selected>&nbsp;</option>
             <option>5</option>
             <option>4</option>
             <option>3</option>
@@ -52,8 +56,9 @@
          </select>
         <!--AP test box-->
     </div>
-    <div class="menu navpill lh" id="coen-10-input-ap"/> Comp Sci A 
+    <div class="navpill" id="coen-10-input-ap"/> Comp Sci A 
          <select id="coen-10-select">
+            <option disabled selected>&nbsp;</option>
             <option>5</option>
             <option>4</option>
             <option>3</option>
@@ -62,8 +67,9 @@
          </select>
         <!--AP test box-->
     </div>
-    <div class="menu navpill" id="phys-31-input-ap"/> Physics C: Mechanics
+    <div class="navpill" id="phys-31-input-ap"/> Physics C: Mechanics
          <select id="phys-31-select">
+            <option disabled selected>&nbsp;</option>
             <option>5</option>
             <option>4</option>
             <option>3</option>
@@ -72,8 +78,9 @@
          </select>
         <!--AP test box-->
     </div>
-    <div class="menu navpill" id="phys-33-input-ap" type="checkbox"/> Physics C: Electricity and Magnetism
+    <div class="navpill" id="phys-33-input-ap" type="checkbox"/> Physics C: Electricity and Magnetism
          <select id="phys-33-select">
+            <option disabled selected>&nbsp;</option>
             <option>5</option>
             <option>4</option>
             <option>3</option>
@@ -86,32 +93,33 @@
 </div>
 
 <div id="content2" class="scrollable content">
-    <div class="transfer">
-        <div class="centered lh navpill" id="math-11-input-transfer" /> MATH 11 </div>
-        <div class="centered lh navpill" id="math-12-input-transfer" /> MATH 12 </div>
-        <div class="centered lh navpill" id="math-13-input-transfer" /> MATH 13 </div>
-        <div class="centered lh navpill" id="math-14-input-transfer" /> MATH 14 </div>
-        <div class="centered lh navpill" id="math-53-input-transfer" /> MATH 53 </div>
-        <div class="centered lh navpill" id="math-106-input-transfer" /> AMTH 106 </div>
-        <div class="centered lh navpill" id="math-108-input-transfer" /> MATH 108 </div>
-        <div class="centered lh navpill" id="phys-31-input-transfer" /> PHYS 31 </div>
-        <div class="centered lh navpill" id="phys-32-input-transfer" /> PHYS 32 </div>
-        <div class="centered lh navpill" id="phys-33-input-transfer" /> PHYS 33 </div>
-        <div class="centered lh navpill" id="chem-11-input-transfer" /> CHEM 11 </div>
-        <div class="centered lh navpill" id="coen-10-input-transfer" /> COEN 10 </div>
-        <div class="centered lh navpill" id="coen-11-input-transfer" /> COEN 11 </div>
-        <div class="centered lh navpill" id="coen-12-input-transfer" /> COEN 12 </div>
+    <div class="centered">
+        <div class="link navpill" id="math-11-input-transfer" /> MATH 11 </div>
+        <div class="link navpill" id="math-12-input-transfer" /> MATH 12 </div>
+        <div class="link navpill" id="math-13-input-transfer" /> MATH 13 </div>
+        <div class="link navpill" id="math-14-input-transfer" /> MATH 14 </div>
+        <div class="link navpill" id="math-53-input-transfer" /> MATH 53 </div>
+        <div class="link navpill" id="math-106-input-transfer" /> AMTH 106 </div>
+        <div class="link navpill" id="math-108-input-transfer" /> MATH 108 </div>
+        <div class="link navpill" id="phys-31-input-transfer" /> PHYS 31 </div>
+        <div class="link navpill" id="phys-32-input-transfer" /> PHYS 32 </div>
+        <div class="link navpill" id="phys-33-input-transfer" /> PHYS 33 </div>
+        <div class="link navpill" id="chem-11-input-transfer" /> CHEM 11 </div>
+        <div class="link navpill" id="coen-10-input-transfer" /> COEN 10 </div>
+        <div class="link navpill" id="coen-11-input-transfer" /> COEN 11 </div>
+        <div class="link navpill" id="coen-12-input-transfer" /> COEN 12 </div>
     </div>
 <!--/content2-->
 </div>
 
 <div id="content3" class="scrollable content">
 
-    <div class="progLangExp centered">
+    <div class="centered">
         <form action="">
-            <div class="navpill lh long block centered"><input type="radio" name="progexp" class="coen-10-input-radio" value="yes" /> Yes, I have programming experience </div>
-            <div class="navpill lh long block centered"><input type="radio" name="progexp" class="coen-10-input-radio" value="no" /> No, I don't have programming experience </div>
-            <div class="navpill lh long block centered"><input type="radio" name="progexp" value="coen-10-input-radio" /> I don't know if I have programming experience </div>
+            <h3>Do you have programming experience with a language like Javascript, C<sup>++</sup>, or C?</h3>
+            <div class="navpill"><input type="radio" name="progexp" class="coen-10-input-radio" value="yes" /> Yes</div>
+            <div class="navpill"><input type="radio" name="progexp" class="coen-10-input-radio" value="no" /> No</div>
+            <!--<div class="navpill"><input type="radio" name="progexp" value="coen-10-input-radio" /> I don't know</div>-->
         </form>
     </div>
 <!--/content3-->
