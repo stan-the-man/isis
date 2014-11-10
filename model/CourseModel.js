@@ -5,18 +5,22 @@ var Schedule = {
     requirements: {
         "Natural Science" : false,
         "MATH 9" : true,
-        "MATH 11" : false,
-        "MATH 12" : false,
+        "MATH 11" : true,
+        "MATH 12" : true,
         "MATH 13" : false,
-        "CHEM 11" : false,
-        "AMTH 106": false,
-        "COEN 10" : false,
+        "CHEM 11" : true,
+        "AMTH 106": true,
+        "COEN 10" : true,
         "COEN 11" : false,
         "PHYS 31" : false,
         "PHYS 32" : false,
         "PHYS 33" : false  
     },
     currentMajor: "coen",
+    
+    chemReplacement: null,
+    amthReplacement: null,
+
 
     changeMajor: function() {
         if(this.currentMajor == 'coen') {
@@ -50,6 +54,8 @@ var Schedule = {
             "PHYS 32" : false,
             "PHYS 33" : false  
         };
+        this.chemReplacement = null;
+        this.amthReplacement = null;
     },
 
     mathTrackCoen: [
@@ -72,7 +78,7 @@ var Schedule = {
     ],
     
     futureClasses: [],
-
+    
     setMath: function(level) {
         if (level == 9) {
             this.requirements["MATH 9"] = false;
@@ -219,10 +225,16 @@ var Schedule = {
             this.spring.push(courses["C&I 2"]);
         }
         
-        //if fall has two cores and a blank spot, move coen12
-        if (this.numberOfCore("fall") == 2 && this.fall.length < 4 && this.requirements["COEN 11"])
-            this.moveCourse("COEN 12", "fall", "spring");
-        if ((this.numberOfCore("winter") >= 2 && this.winter.length < 4) || this.winter.length <= 2)
+        //if fall has two cores and a blank spot, move coen
+        if ((this.numberOfCore("fall") == 2 && this.fall.length < 4) || (this.numberOfCore("fall") == 1 && this.fall.length < 3)) {
+            if (this.requirements["COEN 10"] && !this.requirements["COEN 11"]) {
+                this.moveCourse("COEN 11", "fall", "winter");
+                if (this.numberOfCore("winter") >= this.numberOfCore("spring"))
+                    this.moveCourse("COEN 12", "winter", "spring");
+            } else if (this.requirements["COEN 10"] && this.requirements["COEN 11"]) {
+                this.moveCourse("COEN 12", "fall", "spring");
+            }
+        } if ((this.numberOfCore("winter") >= 2 && this.winter.length < 4) || this.winter.length <= 2)
             this.winter.push(this.futureClasses.pop());
         if ((this.numberOfCore("spring") >= 2 && this.spring.length < 4) || this.spring.length <= 2)
             this.spring.push(this.futureClasses.pop());
@@ -283,13 +295,16 @@ var Schedule = {
         this.spring.push(studentMathTrack.pop());
 
         //Science
-        if (this.requirements["CHEM 11"] == false)
-            this.fall.push(courses["CHEM 11"]);
-        if (this.requirements["PHYS 31"] == false)
+        if (this.requirements["CHEM 11"] == false) {
+            if (this.chemReplacement == null)
+                this.fall.push(courses["CHEM 11"]);
+            else if (this.chemReplacement == courses["BIOL 18"])
+                this.fall.push(this.chemReplacement);
+        } if (this.requirements["PHYS 31"] == false) {
             this.winter.push(courses["PHYS 31"]);
-        if(this.requirements["PHYS 32"] == false)
+        } if(this.requirements["PHYS 32"] == false) {
             this.spring.push(courses["PHYS 32"]);
-        
+        }
         //add future classes if there are a lot of holes
         this.futureClasses.push(courses["COEN 21"]);
         this.futureClasses.push(courses["COEN 20"]);
