@@ -25,6 +25,7 @@ function showContentOne() {
 		});
 	} else {
 		$("#content2, #content3").hide();
+		document.getElementById('n1').className='tab current';
 		$("#content1").show();
 	}
 
@@ -46,6 +47,7 @@ function showContentTwo() {
 		});
 	} else {
 		$("#content1, #content3").hide();
+		document.getElementById('n2').className='tab current';
 		$("#content2").show();
 	}
 
@@ -67,6 +69,7 @@ function showContentThree() {
 	} else {
 		$("#content1, #content2").hide();
 		$("#content3").show();
+		document.getElementById('n3').className='tab current';
 	}
 
 	document.getElementById('n1').className='tab';
