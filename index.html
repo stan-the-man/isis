@@ -23,6 +23,7 @@
 </nav>
 
 <div id="content1" class="scrollable content">
+    <h3>What AP credits do you have?</h3>
     <div class="navpill" id="math-11-input-ap"/> Calculus AB
         <select id="math-11-select">
             <option>&nbsp;</option>
@@ -105,6 +106,7 @@
 
 <div id="content2" class="scrollable content">
     <div class="centered">
+        <h3>What transfer credits do you have?</h3>
         <div class="link navpill" id="math-11-input-transfer" /> MATH 11 </div>
         <div class="link navpill" id="math-12-input-transfer" /> MATH 12 </div>
         <div class="link navpill" id="math-13-input-transfer" /> MATH 13 </div>
@@ -139,7 +141,7 @@
 <div id="schedule" class="schedule">
     <h3>SCU Incoming Student Interactive Scheduler</h3>
     <div class="year">
-        <div id="fall"> Fall
+        <div id="quarter"> Fall
             <div class="courses core"> University Core (English I)</div>
             <div class="courses mathsci"> MATH 11 - Caluclus I</div>
             <div class="courses mathsci"> CHEM 11 - Chemistry I</div>
@@ -147,20 +149,21 @@
             <div class="courses engineering" id="engr1"> ENGR 1 - Intro to Engineering (2 credits)</div>
             <!--Fall Quarter Classes-->
         </div>
-        <div id="winter"> Winter
+        <div id="quarter"> Winter
             <div class="courses core"> University Core (English II)</div>
             <div class="courses mathsci"> MATH 12 - Calculus II</div>
             <div class="courses mathsci"> PHYS 31 - Physics I</div>
             <div class="courses engineering"> COEN 11 - Advanced Programming</div>
             <!--Winter Quarter Classes-->
         </div>
-            <div id="spring"> Spring
+        <div id="quarter"> Spring
             <div class="courses mathsci"> COEN 19 - Discrete Math</div>
             <div class="courses mathsci"> MATH 13 - Calculus III</div>
             <div class="courses mathsci"> PHYS 32 - Physics II</div>
             <div class="courses engineering"> COEN 12 - Data Structures</div>
             <!--Spring Quarter Classes-->
         </div>
+    <!--/year-->
     </div>
 <!--/schedule-->
 </div>
@@ -168,7 +171,7 @@
 <footer>
     <!--<div id="change-major" class="tab">Change Major</div>-->
     <div id="reset" class="tab">Reset</div>
-    <div class="tab" onclick="Print()"> </div>
+    <div class="tab" onclick="Print()">Print</div>
     <div class="tab" onclick="hideContent()">Hide Options</div>
 </footer>
 

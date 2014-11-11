@@ -40,6 +40,9 @@ nav {
 	left:0em;
 	right:0em;
 	overflow:visible;
+	-moz-box-shadow: 1px 5px 10px #888;
+	-webkit-box-shadow: 1px 5px 10px #888;
+	box-shadow: 1px 5px 10px #888;
 }
 div.tab {
 	color: white;
@@ -108,25 +111,17 @@ div.courses {
 	-webkit-box-shadow: 1px 5px 10px #888;
 	box-shadow: 1px 5px 10px #888;
 }
-#fall { 
+#quarter { 
 	display:inline-block;
 	vertical-align: top;
 	margin-right: 10px;
-}
-#winter {
-	display:inline-block;
-	vertical-align:top;
-    margin-right: 10px;
-}
-#spring {
-	vertical-align: top;
-	display:inline-block;
+	text-shadow: 1px 1px #888;
 }
 div.year { 
 	border: 2px solid black;
 	border-radius: 20px;
 	width:750px;
-	height:300px;
+	height:320px;
 	position: relative;
 	display: block;
 	margin: auto;
