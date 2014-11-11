@@ -5,12 +5,12 @@ var Schedule = {
     requirements: {
         "Natural Science" : false,
         "MATH 9" : true,
-        "MATH 11" : true,
-        "MATH 12" : true,
+        "MATH 11" : false,
+        "MATH 12" : false,
         "MATH 13" : false,
-        "CHEM 11" : true,
-        "AMTH 106": true,
-        "COEN 10" : true,
+        "CHEM 11" : false,
+        "AMTH 106": false,
+        "COEN 10" : false,
         "COEN 11" : false,
         "PHYS 31" : false,
         "PHYS 32" : false,
@@ -18,10 +18,6 @@ var Schedule = {
     },
     currentMajor: "coen",
     
-    chemReplacement: null,
-    amthReplacement: null,
-
-
     changeMajor: function() {
         if(this.currentMajor == 'coen') {
             this.currentMajor = 'web';
@@ -54,8 +50,6 @@ var Schedule = {
             "PHYS 32" : false,
             "PHYS 33" : false  
         };
-        this.chemReplacement = null;
-        this.amthReplacement = null;
     },
 
     mathTrackCoen: [
@@ -296,10 +290,7 @@ var Schedule = {
 
         //Science
         if (this.requirements["CHEM 11"] == false) {
-            if (this.chemReplacement == null)
-                this.fall.push(courses["CHEM 11"]);
-            else if (this.chemReplacement == courses["BIOL 18"])
-                this.fall.push(this.chemReplacement);
+            this.fall.push(courses["CHEM 11"]);
         } if (this.requirements["PHYS 31"] == false) {
             this.winter.push(courses["PHYS 31"]);
         } if(this.requirements["PHYS 32"] == false) {
