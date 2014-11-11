@@ -14,6 +14,14 @@ $(document).ready(function() {
     $('select').val('5');
   });
 
+  $('.hidden-checkbox').change(function() {
+    if($(this).parent().hasClass('active')) {
+      $(this).parent().removeClass('active');
+    } else {
+      $(this).parent().addClass('active');
+    }
+  });
+
   // Math 11 transfer credit handler
   //
   $('#math-11-input-transfer').change(function() {
@@ -25,6 +33,7 @@ $(document).ready(function() {
       }
     } else {
       $('#math-12-input-transfer, #math-13-input-transfer').prop('checked', false);
+      $('#math-12-input-transfer, #math-13-input-transfer').parent().removeClass('active');
 
       if(checkAP('math-12', 4)) {
         Schedule.setMath(12);
@@ -57,6 +66,7 @@ $(document).ready(function() {
   $('#math-12-input-transfer').change(function() {
     if(this.checked) {
       $('#math-11-input-transfer').prop('checked', true);
+      $('#math-11-input-transfer').parent().addClass('active');
 
       if(checkAP('math-12', 4)) {
         return;
@@ -65,6 +75,7 @@ $(document).ready(function() {
       }
     } else {
       $('#math-13-input-transfer').prop('checked', false);
+      $('#math-13-input-transfer').parent().removeClass('active');
 
       if(checkAP('math-12', 4)) {
         return;
@@ -81,6 +92,7 @@ $(document).ready(function() {
   $('#math-13-input-transfer').change(function() {
     if(this.checked) {
       $('#math-11-input-transfer, #math-12-input-transfer').prop('checked', true);
+      $('#math-11-input-transfer, #math-12-input-transfer').parent().addClass('active');
       Schedule.setMath(13);
     } else {
       Schedule.setMath(12);

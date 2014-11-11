@@ -143,14 +143,10 @@ div.mathsci {
 	background-color: #D4E2FF;
 }
 div.navpill{
-	min-height: 2em;
 	float:left;
-	max-width:20em;
 	background-color:white;
 	line-height: 2em;
 	text-align:center;
-	padding-left:.625em;
-	padding-right:.625em;
 	margin:.3125em;
 	margin-bottom:.625em;
 	overflow:visible;
@@ -158,4 +154,21 @@ div.navpill{
 	-moz-box-shadow: 1px 5px 10px #888;
 	-webkit-box-shadow: 1px 5px 10px #888;
 	box-shadow: 1px 5px 10px #888;
+}
+
+input.hidden-checkbox {
+	display: none;
+}
+
+label {
+	display: block;
+	max-width:20em;
+	min-height: 2em;
+	padding-left:.625em;
+	padding-right:.625em;
+}
+
+div.active {
+	background-color: black;
+	color: white;
 }

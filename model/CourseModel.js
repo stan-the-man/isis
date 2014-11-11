@@ -75,7 +75,7 @@ var Schedule = {
     
     setMath: function(level) {
         if (level == 9) {
-            this.requirements["MATH 9"] = false;
+            this.requirements["MATH 9"] = true;
             this.requirements["MATH 11"] = false;
             this.requirements["MATH 12"] = false;
             this.requirements["MATH 13"] = false;
@@ -367,9 +367,9 @@ var Schedule = {
 
     update: function() {
         var i;
-        var fallDiv = $('#fall');
-        var winterDiv = $('#winter');
-        var springDiv = $('#spring');
+        var fallDiv = $('#Fall');
+        var winterDiv = $('#Winter');
+        var springDiv = $('#Spring');
 
         fallDiv.html("Fall");
         winterDiv.html("Winter");
