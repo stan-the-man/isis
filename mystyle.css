@@ -100,7 +100,7 @@ div.centered {
 }
 div.courses { 
 	width: 200px;
-	height: 40px;
+	height: 45px;
 	text-align: center;
 	border-radius: 10px;
 	padding: 4px;
@@ -120,12 +120,12 @@ div.courses {
 div.year { 
 	border: 2px solid black;
 	border-radius: 20px;
-	width:750px;
-	height:320px;
+	width:732px;
+	height:345px;
 	position: relative;
 	display: block;
 	margin: auto;
-	padding: 30px;
+	padding: 15px;
 	-moz-box-shadow: 1px 5px 10px #888;
 	-webkit-box-shadow: 1px 5px 10px #888;
 	box-shadow: 1px 5px 10px #888;
