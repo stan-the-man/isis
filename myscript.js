@@ -18,12 +18,17 @@ function hideContent() {
 function showContentOne() {
 	if(!$("#content1, #content2, #content3").is(":visible")) {
 		$("#content1").slideDown();
+		document.getElementById('n1').className='tab current';
+	} else if($("#content1").is(":visible")) {
+		$("#content1").slideUp(function() {
+			$("#n1").removeClass('current');
+		});
 	} else {
 		$("#content2, #content3").hide();
 		$("#content1").show();
 	}
 
-	document.getElementById('n1').className='tab current';
+
 	document.getElementById('n2').className='tab';
 	document.getElementById('n3').className='tab';
 	document.getElementById('schedule').className='schedule';
@@ -34,13 +39,17 @@ function showContentOne() {
 function showContentTwo() {
 	if(!$("#content1, #content2, #content3").is(":visible")) {
 		$("#content2").slideDown();
+		document.getElementById('n2').className='tab current';
+	} else if ($('#content2').is(':visible')) {
+		$("#content2").slideUp(function() {
+			$("#n2").removeClass('current');
+		});
 	} else {
 		$("#content1, #content3").hide();
 		$("#content2").show();
 	}
 
 	document.getElementById('n1').className='tab';
-	document.getElementById('n2').className='tab current';
 	document.getElementById('n3').className='tab';
 	document.getElementById('schedule').className='schedule';
 }
@@ -50,6 +59,11 @@ function showContentTwo() {
 function showContentThree() {
 	if(!$("#content1, #content2, #content3").is(":visible")) {
 		$("#content3").slideDown();
+		document.getElementById('n3').className='tab current';
+	} else if($("#content3").is(":visible")) {
+		$("#content3").slideUp(function() {
+			$("#n3").removeClass('current');
+		});
 	} else {
 		$("#content1, #content2").hide();
 		$("#content3").show();
@@ -57,7 +71,6 @@ function showContentThree() {
 
 	document.getElementById('n1').className='tab';
 	document.getElementById('n2').className='tab';
-	document.getElementById('n3').className='tab current';
 	document.getElementById('schedule').className='schedule';
 }
 
