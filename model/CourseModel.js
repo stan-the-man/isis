@@ -164,23 +164,15 @@ var Schedule = {
 
     setPhysics: function(level, set) {
         if (level == 31) {
-            this.requirements["PHYS 31"] = true;
-            this.requirements["PHYS 32"] = false;
-            this.requirements["PHYS 33"] = false;
+            this.requirements["PHYS 31"] = set;
         } else if (level == 32) {
-            this.requirements["PHYS 31"] = true;
-            this.requirements["PHYS 32"] = true;
+            this.requirements["PHYS 32"] = set;
         } else if (level == 33 && !set) {
-            this.requirements["PHYS 33"] = false;
+            this.requirements["PHYS 33"] = set;
         } else if (level == 33) {
-            this.requirements["PHYS 33"] = true;
-        } else {
-            this.requirements["PHYS 31"] = false;
-            this.requirements["PHYS 32"] = false;
-            this.requirements["PHYS 33"] = false;
+            this.requirements["PHYS 33"] = set;
         }
     },
-
 
     addENGR1: function() {
         var fallLabs = 0;
@@ -482,7 +474,12 @@ var Schedule = {
         $.each(this.fall, function(index, course) {
             var newCourse = document.createElement('div');
             newCourse.className = "courses " + course.subject;
-            newCourse.innerHTML = course.name + " - " + course.description;
+            if(course.description.length > 0) {
+                newCourse.innerHTML = course.name + " - " + course.description;     
+            } else {
+                newCourse.innerHTML = course.name;
+            }
+
             fallDiv.append(newCourse);
         });
 
@@ -491,7 +488,12 @@ var Schedule = {
         $.each(this.winter, function(index, course) {
             var newCourse = document.createElement('div');
             newCourse.className = "courses " + course.subject;
-            newCourse.innerHTML = course.name + " - " + course.description;
+            if(course.description.length > 0) {
+                newCourse.innerHTML = course.name + " - " + course.description;     
+            } else {
+                newCourse.innerHTML = course.name;
+            }
+
             winterDiv.append(newCourse);
         });
 
@@ -500,7 +502,12 @@ var Schedule = {
         $.each(this.spring, function(index, course) {
             var newCourse = document.createElement('div');
             newCourse.className = "courses " + course.subject;
-            newCourse.innerHTML = course.name + " - " + course.description;
+            if(course.description.length > 0) {
+                newCourse.innerHTML = course.name + " - " + course.description;     
+            } else {
+                newCourse.innerHTML = course.name;
+            }
+
             springDiv.append(newCourse);
         });
     }
