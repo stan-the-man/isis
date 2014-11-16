@@ -8,8 +8,10 @@ var Schedule = {
         "MATH 11" : false,
         "MATH 12" : false,
         "MATH 13" : false,
+        "MATH 14" : false,
         "CHEM 11" : false,
         "AMTH 106": false,
+        "MATH 53" : false,
         "COEN 10" : false,
         "COEN 11" : false,
         "PHYS 31" : false,
@@ -42,10 +44,13 @@ var Schedule = {
             "MATH 11" : false,
             "MATH 12" : false,
             "MATH 13" : false,
+            "MATH 14" : false,
             "CHEM 11" : false,
             "AMTH 106": false,
+            "MATH 53" : false,
             "COEN 10" : false,
             "COEN 11" : false,
+            "COEN 12" : false,
             "PHYS 31" : false,
             "PHYS 32" : false,
             "PHYS 33" : false  
@@ -79,27 +84,42 @@ var Schedule = {
             this.requirements["MATH 11"] = false;
             this.requirements["MATH 12"] = false;
             this.requirements["MATH 13"] = false;
+            this.requirements["MATH 14"] = false;
         } else if (level == 11) {
             this.requirements["MATH 9"] = true;
             this.requirements["MATH 11"] = true;
             this.requirements["MATH 12"] = false;
             this.requirements["MATH 13"] = false;
+            this.requirements["MATH 14"] = false;
         } else if (level == 12) {
             this.requirements["MATH 9"] = true;
             this.requirements["MATH 11"] = true;
             this.requirements["MATH 12"] = true;
             this.requirements["MATH 13"] = false;
+            this.requirements["MATH 14"] = false;
         } else if (level == 13) {
             this.requirements["MATH 9"] = true;
             this.requirements["MATH 11"] = true;
             this.requirements["MATH 12"] = true;
             this.requirements["MATH 13"] = true;
+            this.requirements["MATH 14"] = false;
+        } else if(level == 14) {
+            this.requirements["MATH 9"] = true;
+            this.requirements["MATH 11"] = true;
+            this.requirements["MATH 12"] = true;
+            this.requirements["MATH 13"] = true;
+            this.requirements["MATH 14"] = true;
         } else {
             this.requirements["MATH 9"] = true;
             this.requirements["MATH 11"] = false;
             this.requirements["MATH 12"] = false;
             this.requirements["MATH 13"] = false;
+            this.requirements["MATH 14"] = false;
         }
+    },
+
+    setLinearAlgebra: function(has) {
+        this.requirements["MATH 53"] = has;
     },
 
     setNaturalScience: function(has) {
@@ -110,16 +130,35 @@ var Schedule = {
         this.requirements["CHEM 11"] = has;
     },
 
+    setMath106: function(has) {
+        this.requirements["AMTH 106"] = has;
+    },
+
+    setMath108: function(has) {
+        this.requirements["AMTH 108"] = has;
+    },
+
+    setGeneralCourse: function(course, has) {
+        this.requirements[course] = has;
+    },
+
     setCoen: function(level) {
         if (level == 10) {
             this.requirements["COEN 10"] = true;
             this.requirements["COEN 11"] = false;
+            this.requirements["COEN 12"] = false;
         } else if (level == 11) {
             this.requirements["COEN 10"] = true;
             this.requirements["COEN 11"] = true;
+            this.requirements["COEN 12"] = false;
+        } else if (level == 12) {
+            this.requirements["COEN 10"] = true;
+            this.requirements["COEN 11"] = true;
+            this.requirements["COEN 12"] = true;
         } else {
             this.requirements["COEN 10"] = false;
             this.requirements["COEN 11"] = false;
+            this.requirements["COEN 12"] = false;
         }
     },
 
@@ -137,7 +176,7 @@ var Schedule = {
             this.requirements["PHYS 33"] = true;
         } else {
             this.requirements["PHYS 31"] = false;
-            this.requirements["PHYS 33"] = false;
+            this.requirements["PHYS 32"] = false;
             this.requirements["PHYS 33"] = false;
         }
     },
@@ -228,7 +267,9 @@ var Schedule = {
             } else if (this.requirements["COEN 10"] && this.requirements["COEN 11"]) {
                 this.moveCourse("COEN 12", "fall", "spring");
             }
-        } if ((this.numberOfCore("winter") >= 2 && this.winter.length < 4) || this.winter.length <= 2)
+        } 
+
+        if ((this.numberOfCore("winter") >= 2 && this.winter.length < 4) || this.winter.length <= 2)
             this.winter.push(this.futureClasses.pop());
         if ((this.numberOfCore("spring") >= 2 && this.spring.length < 4) || this.spring.length <= 2)
             this.spring.push(this.futureClasses.pop());
@@ -254,7 +295,8 @@ var Schedule = {
             this.fall.push(courses["COEN 10"]);
         if (this.requirements["COEN 11"] == false)
             this.winter.push(courses["COEN 11"]);
-        this.spring.push(courses["COEN 12"]);
+        if (this.requirements["COEN 12"] == false)
+            this.spring.push(courses["COEN 12"]);
         
         //CTW
         this.fall.push(courses["CTW 1"]);
@@ -266,10 +308,15 @@ var Schedule = {
         
         // Math
         var studentMathTrack;
+        var fallMath;
+        var winterMath;
+        var springMath;
         if(!this.requirements["MATH 9"]) {
             studentMathTrack = [];
             studentMathTrack.push(courses["MATH 9"]);
             studentMathTrack = studentMathTrack.concat(this.mathTrackCoen);
+        } else if(this.requirements["MATH 14"] && this.requirements["MATH 13"] && this.requirements["MATH 12"] && this.requirements["MATH 11"]) {
+            studentMathTrack = this.mathTrackCoen.slice(4);
         } else if(this.requirements["MATH 13"] && this.requirements["MATH 12"] && this.requirements["MATH 11"]) {
             studentMathTrack = this.mathTrackCoen.slice(3);
         } else if(this.requirements["MATH 11"] && this.requirements["MATH 12"]) {
@@ -280,13 +327,34 @@ var Schedule = {
             studentMathTrack = this.mathTrackCoen.slice(0);
         }
         
+        // check for 106, 108, and 53
         if(this.requirements["AMTH 106"])
             studentMathTrack.splice(studentMathTrack.indexOf(courses["AMTH 106"]), 1);
 
+        if(this.requirements["AMTH 108"])
+            studentMathTrack.splice(studentMathTrack.indexOf(courses["AMTH 108"]), 1);
+
+        if(this.requirements["MATH 53"])
+            studentMathTrack.splice(studentMathTrack.indexOf(courses["MATH 53"]), 1);
+
         studentMathTrack.reverse();
-        this.fall.push(studentMathTrack.pop());
-        this.winter.push(studentMathTrack.pop());
-        this.spring.push(studentMathTrack.pop());
+
+        fallMath = studentMathTrack.pop();
+        winterMath = studentMathTrack.pop();
+        springMath = studentMathTrack.pop();
+
+        // perform checks for existence before we just add the math classes (could be less than 3 in the math track)
+        if(fallMath) {
+            this.fall.push(fallMath);
+        }
+
+        if(winterMath) {
+            this.winter.push(winterMath);
+        }
+
+        if(springMath) {
+            this.spring.push(springMath);
+        }
 
         //Science
         if (this.requirements["CHEM 11"] == false) {
@@ -316,10 +384,16 @@ var Schedule = {
         
         //Math
         var studentMathTrack;
+        var fallMath;
+        var winterMath;
+        var springMath;
+
         if(!this.requirements["MATH 9"]) {
             studentMathTrack = [];
             studentMathTrack.push(courses["MATH 9"]);
             studentMathTrack = studentMathTrack.concat(this.mathTrackWeb);
+        } else if(this.requirements["MATH 14"] && this.requirements["MATH 13"] && this.requirements["MATH 12"] && this.requirements["MATH 11"]) {
+            studentMathTrack = this.mathTrackWeb.slice(4);
         } else if(this.requirements["MATH 13"] && this.requirements["MATH 12"] && this.requirements["MATH 11"]) {
             studentMathTrack = this.mathTrackWeb.slice(3);
         } else if(this.requirements["MATH 11"] && this.requirements["MATH 12"]) {
@@ -330,11 +404,33 @@ var Schedule = {
             studentMathTrack = this.mathTrackWeb.slice(0);
         }
 
+        // check for 108 and 53
+        if(this.requirements["AMTH 108"])
+            studentMathTrack.splice(studentMathTrack.indexOf(courses["AMTH 108"]), 1);
+
+        if(this.requirements["MATH 53"])
+            studentMathTrack.splice(studentMathTrack.indexOf(courses["MATH 53"]), 1);
+
+
         studentMathTrack.reverse();
-        this.fall.push(studentMathTrack.pop());
-        this.winter.push(studentMathTrack.pop());
-        this.spring.push(studentMathTrack.pop());
-    
+
+        fallMath = studentMathTrack.pop();
+        winterMath = studentMathTrack.pop();
+        springMath = studentMathTrack.pop();
+
+        // perform checks for existence before we just add the math classes (could be less than 3 in the math track)
+        if(fallMath) {
+            this.fall.push(fallMath);
+        }
+
+        if(winterMath) {
+            this.winter.push(winterMath);
+        }
+
+        if(springMath) {
+            this.spring.push(springMath);
+        }
+
         //add future classes if there are a lot of holes
         this.futureClasses.push(courses["COMM 2"]);
         this.futureClasses.push(courses["COMM 12"]);
