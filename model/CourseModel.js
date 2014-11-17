@@ -24,9 +24,11 @@ var Schedule = {
     changeMajor: function() {
         if(this.currentMajor == 'coen') {
             this.currentMajor = 'web';
+            $('#schedule-title').html("Web Design and Engineering Schedule");
             this.web();
         } else {
             this.currentMajor = 'coen';
+            $('#schedule-title').html("Computer Engineering Schedule");
             this.coen();
         }
     },
@@ -433,7 +435,7 @@ var Schedule = {
         this.shared();
         
         //Science
-        if (this.requirements["Natural Science"] == false)
+        if (!this.requirements["Natural Science"] && !this.requirements["CHEM 11"] && !this.requirements["PHYS 31"] && !this.requirements["PHYS 32"] && !this.requirements["PHYS 33"])
             this.fall.push(courses["Natural Science"]);
         
         this.fillHoles();

@@ -16,6 +16,10 @@ $(document).ready(function() {
     $('.navpill').removeClass('disabled');
   });
 
+  $('#change-major').click(function() {
+    Schedule.changeMajor();
+    Schedule.update();
+  });
   /******** MATH HANDLERS *********/
 
   // Handles all calculus transfer credit
@@ -159,13 +163,25 @@ $(document).ready(function() {
 
   // PHYS 33 AP credit handler
   //
-  $('#phys-33-select').change(function() {
+  $('#phys-33-input-transfer, #phys-33-select').change(function() {
     toggleActive(this);
 
-    if(checkAP('phys-33', 4)) {
+    if(checkTransfer('phys-33') || checkAP('phys-33', 4)) {
       Schedule.setPhysics(33, true);
     } else {
       Schedule.setPhysics(33, false);
+    }
+
+    Schedule.update();
+  });
+
+  $('#envsci-select').change(function() {
+    toggleActive(this);
+
+    if(checkAP('envsci', 4)) {
+      Schedule.setNaturalScience(true);
+    } else {
+      Schedule.setNaturalScience(false);
     }
 
     Schedule.update();
