@@ -81,7 +81,7 @@ var Schedule = {
     
     setMath: function(level) {
         if (level == 9) {
-            this.requirements["MATH 9"] = true;
+            this.requirements["MATH 9"] = false;
             this.requirements["MATH 11"] = false;
             this.requirements["MATH 12"] = false;
             this.requirements["MATH 13"] = false;

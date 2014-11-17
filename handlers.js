@@ -21,7 +21,7 @@ $(document).ready(function() {
   // Handles all calculus transfer credit
   //
   $('.calc-transfer').change(function() {
-    toggleTransfer(this);
+    toggleActive(this);
 
     if(!this.checked) {
       clearCalcTransfer();
@@ -34,7 +34,7 @@ $(document).ready(function() {
   // Handles all calculus AP credit
   //
   $('.calc-ap').change(function() {
-    toggleAP(this);
+    toggleActive(this);
     checkCalc();
     Schedule.update();
   });
@@ -42,7 +42,7 @@ $(document).ready(function() {
   // Rest of the Math courses
   //
   $('#math-53-input-transfer').change(function() {
-    toggleTransfer(this);
+    toggleActive(this);
     if(this.checked) {
       Schedule.setLinearAlgebra(true);
     } else {
@@ -53,7 +53,7 @@ $(document).ready(function() {
   });
 
   $('#math-106-input-transfer').change(function() {
-    toggleTransfer(this)
+    toggleActive(this);
     if(this.checked) {
       Schedule.setMath106(true);
     } else {
@@ -64,7 +64,7 @@ $(document).ready(function() {
   });
 
   $('#math-108-input-transfer').change(function() {
-    toggleTransfer(this);
+    toggleActive(this);
     if(this.checked) {
       Schedule.setMath108(true);
     } else {
@@ -74,12 +74,17 @@ $(document).ready(function() {
     Schedule.update();
   });
 
+  $('.math-9-input-radio').change(function() {
+    checkCalc();
+    Schedule.update();
+  });
+
   /********* END MATH HANDLERS ********/
 
   /********* START COEN HANDLERS ********/
 
   $('.coen-transfer').change(function() {
-    toggleTransfer(this);
+    toggleActive(this);
 
     if (!this.checked) {
       clearCoenTransfer();
@@ -91,7 +96,7 @@ $(document).ready(function() {
   });
 
   $('.coen-ap').change(function() {
-    toggleAP(this);
+    toggleActive(this);
     checkCoen();
     Schedule.update();
   });
@@ -107,6 +112,8 @@ $(document).ready(function() {
   // CHEM 11 transfer credit handler
   //
   $('#chem-11-input-transfer, #chem-11-select').change(function() {
+    toggleActive(this);
+
     if(checkTransfer('chem-11') || checkAP('chem-11', 3)) {
       Schedule.setChemistry(true);   
     } else {
@@ -119,6 +126,8 @@ $(document).ready(function() {
   // PHYS 31 handler
   //
   $('#phys-31-input-transfer, #phys-31-select').change(function() {
+    toggleActive(this);
+
     if(checkTransfer('phys-31') || checkAP('phys-31', 4)) {
       Schedule.setPhysics(31, true);
     } else {
@@ -132,6 +141,8 @@ $(document).ready(function() {
   // PHYS 33 transfer credit handler
   //
   $('#phys-32-input-transfer').change(function() {
+    toggleActive(this);
+
     if(this.checked) {
       Schedule.setPhysics(32, true);
     } else {
@@ -144,6 +155,8 @@ $(document).ready(function() {
   // PHYS 33 AP credit handler
   //
   $('#phys-33-select').change(function() {
+    toggleActive(this);
+
     if(checkAP('phys-33', 4)) {
       Schedule.setPhysics(33, true);
     } else {
@@ -158,20 +171,21 @@ $(document).ready(function() {
 
 /********* HELPER FUNCTIONS ********/
 
-function toggleTransfer(el) {
-  if($(el).parent().hasClass('active')) {
-    $(el).parent().removeClass('active');
+function toggleActive(el) {
+  if($(el).hasClass('transfer')) {
+    if($(el).parent().hasClass('active')) {
+      $(el).parent().removeClass('active');
+    } else {
+      $(el).parent().addClass('active');
+    }
   } else {
-    $(el).parent().addClass('active');
+    if($(el).val().length > 0) {
+      $(el).parent().addClass('active');
+    } else {
+      $(el).parent().removeClass('active');
+    }
   }
-}
 
-function toggleAP(el) {
-  if($(el).val().length > 0) {
-    $(el).parent().addClass('active');
-  } else {
-    $(el).parent().removeClass('active');
-  }
 }
 
 function checkTransfer(subject) {
@@ -275,6 +289,11 @@ function checkCalc() {
     Schedule.setMath(11);
   } else if(!isAP) {
     Schedule.setMath();
+  }
+
+  // for the readiness exam - OVERRIDE EVERYTHING ELSE
+  if(checkRadio('calcread')) {
+    Schedule.setMath(9);
   }
 }
 
