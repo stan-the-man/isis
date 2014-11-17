@@ -114,9 +114,14 @@ $(document).ready(function() {
   $('#chem-11-input-transfer, #chem-11-select').change(function() {
     toggleActive(this);
 
-    if(checkTransfer('chem-11') || checkAP('chem-11', 3)) {
+    if(checkAP('chem-11', 4)) {
+      Schedule.setChemistry(true);
+      Schedule.setMath106(true);  // 4 or 5 gets us chem 12 too which can be used for AMTH 106
+    } else if(checkTransfer('chem-11') || checkAP('chem-11', 3)) {
+      if(!checkTransfer('math-106')) Schedule.setMath106(false);
       Schedule.setChemistry(true);   
     } else {
+      if(!checkTransfer('math-106')) Schedule.setMath106(false);
       Schedule.setChemistry(false);
     }
 
