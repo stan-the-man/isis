@@ -14,6 +14,7 @@ var Schedule = {
         "MATH 53" : false,
         "COEN 10" : false,
         "COEN 11" : false,
+        "COEN 12" : false,
         "PHYS 31" : false,
         "PHYS 32" : false,
         "PHYS 33" : false  

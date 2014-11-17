@@ -16,117 +16,33 @@ $(document).ready(function() {
     $('.navpill').removeClass('disabled');
   });
 
-  $('.hidden-checkbox').change(function() {
-    if($(this).parent().hasClass('active')) {
-      $(this).parent().removeClass('active');
-    } else {
-      $(this).parent().addClass('active');
-    }
-  });
-
-  $('select').change(function() {
-    if($(this).val().length > 0) {
-      $(this).parent().addClass('active');
-    } else {
-      $(this).parent().removeClass('active');
-    }
-  });
-
   /******** MATH HANDLERS *********/
 
-  // Math 11 transfer credit handler
+  // Handles all calculus transfer credit
   //
-  $('#math-11-input-transfer').change(function() {
-    if(this.checked && !checkMathAP()) {
-      Schedule.setMath(11);
-    } else {
-      if(!checkMathAP()) {
-        Schedule.setMath();
-      }
+  $('.calc-transfer').change(function() {
+    toggleTransfer(this);
+
+    if(!this.checked) {
+      clearCalcTransfer();
     }
+    checkCalc();
 
     Schedule.update();
   });
 
-  // Math 11 AP credit handler
+  // Handles all calculus AP credit
   //
-  $('#math-11-select').change(function() {
-    if(checkAP('math-12', 3) || checkTransfer('math-12')) {
-      return;
-    } else if(checkAP('math-11', 4) || checkTransfer('math-11')) {
-      Schedule.setMath(11);
-    } else {
-      Schedule.setMath();
-    }
-
+  $('.calc-ap').change(function() {
+    toggleAP(this);
+    checkCalc();
     Schedule.update();
   });
 
-  // Math 12 transfer credit handler
+  // Rest of the Math courses
   //
-  $('#math-12-input-transfer').change(function() {
-    if(this.checked) {
-      disableMath(11);
-      Schedule.setMath(12);
-    } else {
-      clearMathTransfer();
-
-      if(!checkMathAP()) {
-        Schedule.setMath();
-      }
-    }
-
-    Schedule.update();
-  });
-
-  // Math 12 AP credit handler (Calculus BC)
-  //
-  $('#math-12-select').change(function() {
-    if(checkTransfer('math-13')) {
-      return;
-    } else if(checkAP('math-12', 4) || checkTransfer('math-12')) {
-      Schedule.setMath(12);
-    } else if(checkTransfer('math-11') || checkAP('math-11', 4) || checkAP('math-12', 3)) {
-      Schedule.setMath(11);
-    } else {
-      Schedule.setMath();
-    }
-
-    Schedule.update();
-  });
-
-  // Math 13 transfer credit handler
-  //
-  $('#math-13-input-transfer').change(function() {
-    if(this.checked) {
-      disableMath(12);
-      Schedule.setMath(13);
-    } else {
-      clearMathTransfer();
-      if(!checkMathAP()) {
-        Schedule.setMath();
-      }
-    }
-
-    Schedule.update();
-  });
-
-  $('#math-14-input-transfer').change(function() {
-    if(this.checked) {
-      disableMath(13);
-      Schedule.setMath(14);
-    } else {
-      clearMathTransfer();
-
-      if(!checkMathAP()) {
-        Schedule.setMath();
-      }
-    }
-
-    Schedule.update();
-  });
-
   $('#math-53-input-transfer').change(function() {
+    toggleTransfer(this);
     if(this.checked) {
       Schedule.setLinearAlgebra(true);
     } else {
@@ -137,6 +53,7 @@ $(document).ready(function() {
   });
 
   $('#math-106-input-transfer').change(function() {
+    toggleTransfer(this)
     if(this.checked) {
       Schedule.setMath106(true);
     } else {
@@ -147,6 +64,7 @@ $(document).ready(function() {
   });
 
   $('#math-108-input-transfer').change(function() {
+    toggleTransfer(this);
     if(this.checked) {
       Schedule.setMath108(true);
     } else {
@@ -160,78 +78,28 @@ $(document).ready(function() {
 
   /********* START COEN HANDLERS ********/
 
-  // COEN 10 transfer credit handler
-  //
-  $('#coen-10-input-transfer').change(function() {
-    if(this.checked && !checkCoenAPandExp()) {
-      Schedule.setCoen(10);
-    } else {
-      if(!checkCoenAPandExp()) {
-        Schedule.setCoen();
-      }
+  $('.coen-transfer').change(function() {
+    toggleTransfer(this);
+
+    if (!this.checked) {
+      clearCoenTransfer();
     }
+
+    checkCoen();
 
     Schedule.update();
   });
 
-  // COEN 10 AP credit handler
-  //
-  $('#coen-10-select').change(function() {
-    if(checkAP('coen-10', 4) || checkTransfer('coen-11')) {
-      Schedule.setCoen(11);
-    } else if(checkRadio('progexp') || checkAP('coen-10', 3) || checkTransfer('coen-10')) {
-      Schedule.setCoen(10);
-    } else {
-      Schedule.setCoen();
-    }
-
+  $('.coen-ap').change(function() {
+    toggleAP(this);
+    checkCoen();
     Schedule.update();
   });
 
   $('.coen-10-input-radio').change(function() {
-    if(checkAP('coen-10', 4) || checkTransfer('coen-11')) {
-      Schedule.setCoen(11);
-    } else if(checkRadio("progexp") || checkAP('coen-10', 3) || checkTransfer('coen-10')) {
-      Schedule.setCoen(10);
-    } else {
-      Schedule.setCoen();
-    }
-
+    checkCoen();
     Schedule.update();
   });
-
-  // COEN 11 transfer credit handler
-  //
-  $('#coen-11-input-transfer').change(function() {
-    if(this.checked) {
-      disableCoen(10);
-      Schedule.setCoen(11);   
-    } else {
-      clearCoenTransfer();
-
-      if(!checkCoenAPandExp()) {
-        Schedule.setCoen();
-      }
-    }
-
-    Schedule.update();
-  });
-
-  $('#coen-12-input-transfer').change(function() {
-    if(this.checked) {
-      disableCoen(11);
-      Schedule.setCoen(12);
-    } else  {
-      clearCoenTransfer();
-
-      if(!checkCoenAPandExp()) {
-        Schedule.setCoen();
-      }
-    }
-
-    Schedule.update();
-  });
-
   /********* END COEN HANDLERS ********/
 
   /********* START SCIENCE HANDLERS ********/
@@ -290,6 +158,22 @@ $(document).ready(function() {
 
 /********* HELPER FUNCTIONS ********/
 
+function toggleTransfer(el) {
+  if($(el).parent().hasClass('active')) {
+    $(el).parent().removeClass('active');
+  } else {
+    $(el).parent().addClass('active');
+  }
+}
+
+function toggleAP(el) {
+  if($(el).val().length > 0) {
+    $(el).parent().addClass('active');
+  } else {
+    $(el).parent().removeClass('active');
+  }
+}
+
 function checkTransfer(subject) {
   if($("#" + subject + "-input-transfer").prop('checked')) {
     return true;
@@ -314,6 +198,8 @@ function checkMathAP() {
     Schedule.setMath(11);
     return true;
   }
+
+  Schedule.setMath();
 
   return false;
 }
@@ -373,7 +259,42 @@ function disableCoen(level) {
   courses.parent().removeClass('active').addClass('disabled');
 }
 
-function clearMathTransfer() {
+function checkCalc() {
+  var isAP = checkMathAP();
+
+  if(checkTransfer('math-14')) {
+    Schedule.setMath(14);
+    disableMath(13);
+  } else if(checkTransfer('math-13')) {
+    Schedule.setMath(13);
+    disableMath(12);
+  } else if(checkTransfer('math-12')) {
+    Schedule.setMath(12);
+    disableMath(11);
+  } else if(checkTransfer('math-11') && !isAP){
+    Schedule.setMath(11);
+  } else if(!isAP) {
+    Schedule.setMath();
+  }
+}
+
+function checkCoen() {
+  var isAPorHasExp = checkCoenAPandExp();
+
+  if(checkTransfer('coen-12')) {
+    Schedule.setCoen(12);
+    disableCoen(11);
+  } else if(checkTransfer('coen-11')) {
+    Schedule.setCoen(11);
+    disableCoen(10);
+  } else if(checkTransfer('coen-10') && !isAPorHasExp) {
+    Schedule.setCoen(10);
+  } else if(!isAPorHasExp) {
+    Schedule.setCoen();
+  }
+}
+
+function clearCalcTransfer() {
   var courses =  $("#math-11-input-transfer, #math-12-input-transfer, #math-13-input-transfer");
   courses.prop('checked', false);
   courses.prop('disabled', false);
