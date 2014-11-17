@@ -180,3 +180,15 @@ div.disabled {
 	opacity: 0.5;
 	color: white;
 }
+
+
+@media print {
+	nav, div.content, footer {
+		display: none;
+	}
+
+    @page {  
+ 			size:8.5in 11in;
+    }  
+}
+}

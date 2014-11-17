@@ -76,13 +76,3 @@ function showContentThree() {
 	document.getElementById('n2').className='tab';
 	document.getElementById('schedule').className='schedule';
 }
-
-//this function will change the schedule from one to the other
-function changeMajor() {
-
-}
-
-//this function calls the print
-function print() {
-	
-}
