@@ -264,9 +264,11 @@ var Schedule = {
             }
         } 
 
-        if ((this.numberOfCore("winter") >= 2 && this.winter.length < 4) || this.winter.length <= 2)
+        if (this.futureClasses.length > 0 && ((this.numberOfCore("winter") >= 2 && this.winter.length < 4) || this.winter.length <= 2))
             this.winter.push(this.futureClasses.pop());
-        if ((this.numberOfCore("spring") >= 2 && this.spring.length < 4) || this.spring.length <= 2)
+        if (this.futureClasses.length > 0 && ((this.numberOfCore("spring") >= 2 && this.spring.length < 4) || this.spring.length <= 2))
+            this.spring.push(this.futureClasses.pop());
+        if (this.futureClasses.length > 0 && ((this.numberOfCore("spring") >= 2 && this.spring.length < 4) || this.spring.length <= 2))
             this.spring.push(this.futureClasses.pop());
 
         //if fall has two cores and a blank spot, move coen12
