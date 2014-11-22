@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+
+div.year { 
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	float: none;
+	padding: none;
+}
+div.key {
+	float: none;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}

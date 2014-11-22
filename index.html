@@ -9,7 +9,9 @@
     <script type="text/javascript" src="model/ListOfCourses.js"></script>
     <script type="text/javascript" src="model/CourseModel.js"></script>
     <script type="text/javascript" src="handlers.js"></script>
-    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <link rel="stylesheet" type="text/css" href="css/mystyle.css">
+    <link rel='stylesheet' media='screen and (min-width: 446px) and (max-width: 1069px)' href='css/tablet.css' />
+    <link rel='stylesheet' media='screen and (max-width: 446px)' href='css/phone.css' />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <meta name="keywords" content="isis, first year scheduler, schedule, freshman, freshmen, incoming student interactive scheduler, Santa Clara, SCU, scu, Santa Clara University, Computer Science and Engineering, Web Design Majors">
     <meta name="description" content="This is a first year scheduler for incoming freshman to Santa Clara University for Computer Science and Engineering or Web Design Majors">
@@ -18,8 +20,8 @@
 </head>
 <body onLoad="hideContent()">
 <nav>
-    <div id="n1" class="tab" onclick="showContentOne()">AP Credits</div>
-    <div id="n2" class="tab" onclick="showContentTwo()">Transfer Credits</div>
+    <div id="n1" class="tab" onclick="showContentOne()">Test Credits</div>
+    <div id="n2" class="tab" onclick="showContentTwo()">Transfer Units</div>
     <div id="n3" class="tab" onclick="showContentThree()">Other</div>
 </nav>
 
@@ -37,58 +39,58 @@
         <!--AP test box-->
     </div>
     <div class="navpill" id="math-12-input-ap"/> Calculus BC
-         <select id="math-12-select" class="calc-ap">
+        <select id="math-12-select" class="calc-ap">
             <option>&nbsp;</option>
             <option>5</option>
             <option>4</option>
             <option>3</option>
             <option>2</option>
             <option>1</option>
-         </select>
+        </select>
         <!--AP test box-->
     </div>
     <div class="navpill" id="chem-11-input-ap"/> Chemistry 
-         <select id="chem-11-select">
+        <select id="chem-11-select">
             <option>&nbsp;</option>
             <option>5</option>
             <option>4</option>
             <option>3</option>
             <option>2</option>
             <option>1</option>
-         </select>
+        </select>
         <!--AP test box-->
     </div>
     <div class="navpill" id="envsci-input-ap"/> Environmental Science 
-         <select id="envsci-select">
+        <select id="envsci-select">
             <option>&nbsp;</option>
             <option>5</option>
             <option>4</option>
             <option>3</option>
             <option>2</option>
             <option>1</option>
-         </select>
+        </select>
         <!--AP test box-->
     </div>
     <div class="navpill" id="coen-10-input-ap"/> Comp Sci A 
-         <select id="coen-10-select" class="coen-ap">
+        <select id="coen-10-select" class="coen-ap">
             <option>&nbsp;</option>
             <option>5</option>
             <option>4</option>
             <option>3</option>
             <option>2</option>
             <option>1</option>
-         </select>
+        </select>
         <!--AP test box-->
     </div>
     <div class="navpill" id="phys-31-input-ap"/> Physics C: Mechanics
-         <select id="phys-31-select">
+        <select id="phys-31-select">
             <option>&nbsp;</option>
             <option>5</option>
             <option>4</option>
             <option>3</option>
             <option>2</option>
             <option>1</option>
-         </select>
+        </select>
         <!--AP test box-->
     </div>
     <div class="navpill" id="phys-33-input-ap" type="checkbox"/> Physics C: Electricity and Magnetism
@@ -99,8 +101,29 @@
             <option>3</option>
             <option>2</option>
             <option>1</option>
-         </select>
+        </select>
         <!--AP test box-->
+    </div>
+    <h3>What IB credits do you have?</h3>
+    <div class="navpill" id="chem-11-input-ib"/> Chemistry
+        <select id="math-11-select" class="calc-ap">
+            <option>&nbsp;</option>
+            <option>8</option>
+            <option>7</option>
+            <option>6</option>
+            <option>5-</option>
+        </select>
+        <!--IB test box-->
+    </div>
+    <div class="navpill" id="envr-input-ib"/> Something Else
+        <select id="math-12-select" class="calc-ap">
+            <option>&nbsp;</option>
+            <option>8</option>
+            <option>7</option>
+            <option>6</option>
+            <option>5-</option>
+        </select>
+        <!--IB test box-->
     </div>
 <!--/content1-->
 </div>
@@ -186,9 +209,9 @@
 <!--/content3-->
 </div>
 
-<div id="schedule" class="schedule">
-    <h3 id="schedule-title">Computer Engineering Schedule</h3>
+<div id="schedule" class="schedule scrollable">
     <div class="year">
+        <h3 id="schedule-title">Computer Engineering Schedule</h3>
         <div id="Fall" class="quarter"> Fall
             <div class="courses core"> University Core (English I)</div>
             <div class="courses mathsci"> MATH 11 - Caluclus I</div>
@@ -213,6 +236,14 @@
         </div>
     <!--/year-->
     </div>
+    <div class="key">
+        <div class="courses core">Core</div>
+        <div class="courses mathsci">Math</div>
+        <div class="courses engineering">Engineering</div>
+        <div class="courses comm">Communications</div>
+    <!--/key-->
+    </div>
+    <div class="foofooter"></div>
 <!--/schedule-->
 </div>
 
