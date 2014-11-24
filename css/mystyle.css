@@ -19,6 +19,9 @@ input {
 label {
 	cursor:pointer;
 	cursor:hand;
+	max-width:20em;
+	min-height: 2em;
+
 }
 .link {
 	cursor:pointer;
@@ -91,6 +94,9 @@ div.schedule {
 	bottom: 0em;
 	right: 0em;
 }
+div.schedule::-webkit-scrollbar {
+	display:none;
+}
 div.foofooter {
 	height: 3em;
 	float: left;
@@ -111,14 +117,14 @@ div.centered {
 	margin: auto;
 }
 div.courses { 
-	width: 200px;
+	max-width: 200px;
 	height: 45px;
 	text-align: center;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	border-radius: 10px;
-	padding: 4px;
+	padding: 5px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	text-shadow: 1px 1px #888;
@@ -185,14 +191,6 @@ div.navpill{
 
 input.hidden-checkbox {
 	display: none;
-}
-
-label {
-	display: block;
-	max-width:20em;
-	min-height: 2em;
-	padding-left:.625em;
-	padding-right:.625em;
 }
 
 div.active {
