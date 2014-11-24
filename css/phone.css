@@ -3,8 +3,10 @@
 
 div.year { 
 	display: block;
+	width: 100%;
 	float: none;
-	padding: none;
+	padding: 0px;
+	margin: 0;
 	margin-left: auto;
 	margin-right: auto;
 	border: 0;
@@ -17,4 +19,23 @@ div.key {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	width: 240px;
+}
+div.courses {
+	width: 100%;
+	max-width: 220px;
+}
+div.quarter {
+	border: 2px solid black;
+	border-radius: 20px;
+	width: 240px;
+	padding: 15px;
+	padding-top: 0;
+	margin: 20px;
+	-moz-box-shadow: 1px 5px 10px #888;
+	-webkit-box-shadow: 1px 5px 10px #888;
+	box-shadow: 1px 5px 10px #888;
+}
+div.content {
+	height: 29em;
 }

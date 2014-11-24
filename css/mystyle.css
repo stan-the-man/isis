@@ -117,7 +117,7 @@ div.centered {
 	margin: auto;
 }
 div.courses { 
-	max-width: 200px;
+	max-width: 175px;
 	height: 45px;
 	text-align: center;
 	display: block;
@@ -142,7 +142,7 @@ div.year {
 	border: 2px solid black;
 	border-radius: 20px;
 	width: 70%;
-	max-width: 732px;
+	max-width: 630px;
 	float: left;
 	padding: 15px;
 	padding-top: 0;
@@ -155,7 +155,7 @@ div.year {
 div.key {
 	border: 2px solid black;
 	border-radius: 20px;
-	width: 222px;
+	width: 200px;
 	float: right;
 	padding: 15px;
 	margin: 20px;
@@ -206,7 +206,7 @@ div.disabled {
 
 
 @media print {
-	nav, div.content, footer {
+	nav, div.content, footer, div.key, div.foofooter, #schedule-title {
 		display: none !important;
 	}
 
