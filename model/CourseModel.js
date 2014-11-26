@@ -20,6 +20,8 @@ var Schedule = {
         "PHYS 33" : false  
     },
     currentMajor: "coen",
+    lead: false,
+    honors: false,
     
     changeMajor: function() {
         if(this.currentMajor == 'coen') {
@@ -217,6 +219,11 @@ var Schedule = {
 
         //add to quarter with least labs
     },
+    
+    addLEAD: function() {
+        this.fall.push(courses["LEAD1"]);
+        this.winter.push(courses["LEAD2"]);
+    }
 
     numberOfCore: function(quarter) {
         var number = 0;
@@ -374,6 +381,8 @@ var Schedule = {
         
         this.fillHoles();
         this.addENGR1();
+        if (this.lead)
+            this.addLEAD();
     },
 
     web: function() {
@@ -442,6 +451,8 @@ var Schedule = {
         
         this.fillHoles();
         this.addENGR1();
+        if (this.lead)
+            this.addLEAD();
     },
 
     //for debugging
