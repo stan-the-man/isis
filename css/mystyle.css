@@ -68,19 +68,10 @@ div.current {
 	/*border-top-right-radius: 1.5em;
 	border-top-left-radius: 1.5em;*/
 }
-footer {
-	background-color:#F42;
-	position:fixed;
-	right:0em;
-	left:0em;
-	bottom:0em;
-	height:3em;
-	text-align:center;
-}
 div.content {
 	position:relative;
 	display: none;
-	height: 15em;
+	height: 16em;
 	background-color: #9BF;
 	padding: .5em;
 	-moz-box-shadow: 1px 5px 10px #888;
@@ -99,6 +90,7 @@ div.schedule::-webkit-scrollbar {
 	display:none;
 }
 div.foofooter {
+	display: none;
 	height: 3em;
 	float: left;
 	width: 100%;
@@ -179,6 +171,23 @@ div.navpill{
 	background-color:white;
 	line-height: 2em;
 	text-align:center;
+	margin:.3125em;
+	margin-bottom:.625em;
+	overflow:visible;
+	border-radius:.3125em;
+	padding-left: 10px;
+	padding-right: 10px;
+	-moz-box-shadow: 1px 5px 10px #888;
+	-webkit-box-shadow: 1px 5px 10px #888;
+	box-shadow: 1px 5px 10px #888;
+}
+
+div.botbutt{
+	float: right;
+	background-color: black;
+	color: white;
+	line-height: 2em;
+	text-align: center;
 	margin:.3125em;
 	margin-bottom:.625em;
 	overflow:visible;
