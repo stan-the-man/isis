@@ -11,6 +11,7 @@ h1 {
 }
 h3 {
 	text-shadow: 1px 1px #888;
+	clear: left;
 }
 input {
 	cursor:pointer;
