@@ -1,0 +1,1 @@
+To install this site, simply copy and paste all the folders and pages in the main directory to wherever you host websites from. 
