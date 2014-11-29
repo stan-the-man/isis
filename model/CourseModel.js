@@ -223,7 +223,7 @@ var Schedule = {
     addLEAD: function() {
         this.fall.push(courses["LEAD1"]);
         this.winter.push(courses["LEAD2"]);
-    }
+    },
 
     numberOfCore: function(quarter) {
         var number = 0;
