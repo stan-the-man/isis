@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
-div.year { 
+div.schedule { 
 	display: block;
 	width: 100%;
 	float: none;
@@ -14,7 +14,7 @@ div.year {
 	-webkit-box-shadow: 0px 0px 0px #fff;
 	box-shadow: 0px 0px 0px #fff;
 }
-div.key {
+div.key-contents {
 	float: none;
 	display: block;
 	margin-left: auto;

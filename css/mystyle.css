@@ -32,6 +32,10 @@ button {
 	cursor:pointer;
 	cursor:hand;
 }
+footer {
+	text-align: center;
+	clear: both;
+}
 div.scrollable {
 	overflow:auto;
 }
@@ -71,7 +75,7 @@ div.current {
 div.content {
 	position:relative;
 	display: none;
-	height: 16em;
+	height: 13em;
 	background-color: #9BF;
 	padding: .5em;
 	-moz-box-shadow: 1px 5px 10px #888;
@@ -81,19 +85,19 @@ div.content {
 div.schedule {
 	text-align: center;
 	position: relative;
-	top: 0em;
-	left: 0em;
-	bottom: 0em;
-	right: 0em;
+	float: left;
+	padding: 15px;
+	min-width: 50%;
+	margin-top: 40px;
+	margin-left: 40px;
+	border-radius: 15px;
+	border: 1px solid black;
+	-moz-box-shadow: 1px 5px 10px #888;
+	-webkit-box-shadow: 1px 5px 10px #888;
+	box-shadow: 1px 5px 10px #888;
 }
 div.schedule::-webkit-scrollbar {
 	display:none;
-}
-div.foofooter {
-	display: none;
-	height: 3em;
-	float: left;
-	width: 100%;
 }
 div.content::-webkit-scrollbar {
 	display:none;
@@ -131,31 +135,20 @@ div.quarter {
 	margin-right: 10px;
 	text-shadow: 1px 1px #888;
 }
-div.year { 
+div.key-contents {
 	border: 2px solid black;
 	border-radius: 20px;
-	width: 70%;
-	max-width: 630px;
-	float: left;
 	padding: 15px;
-	padding-top: 0;
-	margin: 20px;
-	margin-right: 0px;
+	width: 50%;
+	margin: auto;
 	-moz-box-shadow: 1px 5px 10px #888;
 	-webkit-box-shadow: 1px 5px 10px #888;
 	box-shadow: 1px 5px 10px #888;
 }
 div.key {
-	border: 2px solid black;
-	border-radius: 20px;
-	width: 200px;
 	float: right;
-	padding: 15px;
-	margin: 20px;
-	margin-left: 0px;
-	-moz-box-shadow: 1px 5px 10px #888;
-	-webkit-box-shadow: 1px 5px 10px #888;
-	box-shadow: 1px 5px 10px #888;
+	width: 40%;
+	margin-top: 40px;
 }
 div.engineering { 
 	background-color: lightgreen;
@@ -183,14 +176,14 @@ div.navpill{
 }
 
 div.botbutt{
-	float: right;
 	background-color: black;
+	display: inline-block;
 	color: white;
+	cursor: pointer;
 	line-height: 2em;
 	text-align: center;
 	margin:.3125em;
 	margin-bottom:.625em;
-	overflow:visible;
 	border-radius:.3125em;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -214,6 +207,14 @@ div.disabled {
 	color: white;
 }
 
+h3#key-header {
+	text-align: center;
+}
+
+div.foofooter {
+	clear: both;
+	margin-bottom: 40px;
+}
 
 @media print {
 	nav, div.content, footer, div.key, div.foofooter, #schedule-title {
