@@ -1,76 +1,85 @@
 @charset "utf-8";
 /* CSS Document */
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 667px),
+screen and (max-width: 740px) {
+	div.schedule { 
+		display: block;
+		width: 100%;
+		padding: 0px;
+		border: 0;
+		margin: 0;
+		-moz-box-shadow: 0px 0px 0px #fff;
+		-webkit-box-shadow: 0px 0px 0px #fff;
+		box-shadow: 0px 0px 0px #fff;
+	}
 
-div.schedule { 
-	display: block;
-	width: 90%;
-	float: none;
-	padding: 0px;
-	margin-left: auto;
-	margin-right: auto;
-	border: 0;
-	-moz-box-shadow: 0px 0px 0px #fff;
-	-webkit-box-shadow: 0px 0px 0px #fff;
-	box-shadow: 0px 0px 0px #fff;
-}
+	div.key {
+		width: 100%;
+		margin-bottom: 40px;
+		margin-left: 0;
+		margin-right: 0;
+	}
 
-div.key {
-	width: 100%;
-}
+	div.key-contents {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 240px;
+	}
+	div.courses {
+		width: 100%;
+		max-width: 220px;
+	}
+	div.quarter {
+		border: 2px solid black;
+		border-radius: 20px;
+		width: 240px;
+		padding: 15px;
+		padding-top: 0;
+		margin: 20px;
+		-moz-box-shadow: 1px 5px 10px #888;
+		-webkit-box-shadow: 1px 5px 10px #888;
+		box-shadow: 1px 5px 10px #888;
+	}
+	div.content {
+		height: 29em;
+	}
+	footer {
+		background-color:black;
+		position:fixed;
+		right:0em;
+		left:0em;
+		bottom:0em;
+		height:3em;
+		text-align:center;
+	}
+	div.foofooter {
+		display: block;
+	}
+	div.botbutt {
+		margin: 0;
+		padding: 0;
+		border-radius: 0;
+		border:0;
+		-moz-box-shadow: 0px 0px 0px #fff;
+		-webkit-box-shadow: 0px 0px 0px #fff;
+		box-shadow: 0px 0px 0px #fff;
+		background-color: black;
+		color: white;
+		width: 33.33%;
+		text-align: center;
+		line-height: 3em;
+		height: 3em;
+		overflow: visible;
+		cursor:pointer;
+		cursor:hand;
+		text-shadow: 1px 1px #888;
+	}
 
-div.key-contents {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 240px;
-}
-div.courses {
-	width: 100%;
-	max-width: 220px;
-}
-div.quarter {
-	border: 2px solid black;
-	border-radius: 20px;
-	width: 240px;
-	padding: 15px;
-	padding-top: 0;
-	margin: 20px;
-	-moz-box-shadow: 1px 5px 10px #888;
-	-webkit-box-shadow: 1px 5px 10px #888;
-	box-shadow: 1px 5px 10px #888;
-}
-div.content {
-	height: 29em;
-}
-footer {
-	background-color:black;
-	position:fixed;
-	right:0em;
-	left:0em;
-	bottom:0em;
-	height:3em;
-	text-align:center;
-}
-div.foofooter {
-	display: block;
-}
-div.botbutt {
-	margin: 0;
-	padding: 0;
-	border-radius: 0;
-	border:0;
-	-moz-box-shadow: 0px 0px 0px #fff;
-	-webkit-box-shadow: 0px 0px 0px #fff;
-	box-shadow: 0px 0px 0px #fff;
-	background-color: black;
-	color: white;
-	width: 33.33%;
-	float: left;
-	text-align: center;
-	line-height: 3em;
-	height: 3em;
-	overflow: visible;
-	cursor:pointer;
-	cursor:hand;
-	text-shadow: 1px 1px #888;
+	#print-button {
+		display: none;
+	}
 }
