@@ -75,7 +75,7 @@ div.current {
 div.content {
 	position:relative;
 	display: none;
-	height: 13em;
+	height: 15em;
 	background-color: #9BF;
 	padding: .5em;
 	-moz-box-shadow: 1px 5px 10px #888;
