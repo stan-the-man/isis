@@ -1,3 +1,13 @@
+/*
+    Written by Jason Dougherty and Ashley Sehatti
+    Last updated 12/1/2014
+    
+    This is the definition of the schedule class 
+
+*/
+
+
+
 var Schedule = {
     fall: [],
     winter: [],
