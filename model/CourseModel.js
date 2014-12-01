@@ -1,3 +1,27 @@
+/*
+    Written byJason Dougherty and Ashley Sehatti
+    Last updated: 12/1/2014
+    
+    Schedule object definitions file - Contains all logic for adding and removing classes to the schedule for both majors
+                                     - Major scheduling logic contained in coen (line 334) and web (line 412) modules. 
+                                       All other functions are helpers or reset functions
+                                     - Object used in handlers.js
+                                     
+        Empty arrays used to hold classes for each quarter, originally filled with template.
+        The requirements array holds all classes which can be selected on the site 
+            True if class selected via button press, false else
+        
+        Uses if/else statements to check if a class can be added and if so, which type. 
+            - Math holes are filled with the next math class. (held in mathTrack arrays)
+            - Other holes are filled with CI if possible, else they are filled with core.
+                    If too much core, filled with future classes (COEN 20, COEN 21, etc.)
+        
+        All course definitions in the listofcourses.js file and accessed through courses["class name"].
+        
+*/
+
+
+
 var Schedule = {
     fall: [],
     winter: [],
