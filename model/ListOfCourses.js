@@ -1,3 +1,24 @@
+/*
+    Written by Jason Dougherty and Ashley Sehatti
+    Last updated: 11/29/2014
+    
+    This is a list of the available courses in the schedule and their definitions
+    Each object has: 
+        -a name corresponding to the offered course (MATH 9, COEN 12, etc.)
+        -a description that is displayed after the name
+        -a subject (for proper color coding on final schedule)
+        -a lab flag (true if has a lab section)
+        -a major flag (true if in that majors initial template, false else)
+        -an honors flag (true if an honors course is offered)
+    
+    All of these objects are stored in the courses array. 
+    Indiviudal classes are accessed through an associative array using the course name in all caps ands its number.
+    Ex: courses['MATH 9'] accesses the math 9 course object. 
+    
+*/
+
+
+
 var courses = {
     "MATH 9":  {   name: "MATH 9",
                     description: "Precalculus",
