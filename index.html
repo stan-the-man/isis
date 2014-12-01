@@ -10,8 +10,8 @@
     <script type="text/javascript" src="model/CourseModel.js"></script>
     <script type="text/javascript" src="handlers.js"></script>
     <link rel="stylesheet" type="text/css" href="css/mystyle.css">
-    <link rel='stylesheet' href='css/tablet.css' />
-    <link rel='stylesheet' href='css/phone.css' />
+    <link rel='stylesheet' type="text/css" href='css/tablet.css'>
+    <link rel='stylesheet' type="text/css" href='css/phone.css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <meta name="keywords" content="isis, first year scheduler, schedule, freshman, freshmen, incoming student interactive scheduler, Santa Clara, SCU, scu, Santa Clara University, Computer Science and Engineering, Web Design Majors">
     <meta name="description" content="This is a first year scheduler for incoming freshman to Santa Clara University for Computer Science and Engineering or Web Design Majors">
@@ -210,7 +210,7 @@
 <div id="schedule" class="schedule scrollable">
     <div class="year">
         <h3 id="schedule-title">Computer Engineering Schedule</h3>
-        <div id="Fall" class="quarter"> Fall
+        <div class="quarter"> Fall
             <div class="courses core"> University Core (English I)</div>
             <div class="courses mathsci"> MATH 11 - Caluclus I</div>
             <div class="courses mathsci"> CHEM 11 - Chemistry I</div>
@@ -218,34 +218,31 @@
             <div class="courses engineering" id="engr1"> ENGR 1 - Intro to Engineering (2 credits)</div>
             <!--Fall Quarter Classes-->
         </div>
-        <div id="Winter" class="quarter"> Winter
+        <div class="quarter"> Winter
             <div class="courses core"> University Core (English II)</div>
             <div class="courses mathsci"> MATH 12 - Calculus II</div>
             <div class="courses mathsci"> PHYS 31 - Physics I</div>
             <div class="courses engineering"> COEN 11 - Advanced Programming</div>
             <!--Winter Quarter Classes-->
         </div>
-        <div id="Spring" class="quarter"> Spring
+        <div class="quarter"> Spring
             <div class="courses mathsci"> COEN 19 - Discrete Math</div>
             <div class="courses mathsci"> MATH 13 - Calculus III</div>
             <div class="courses mathsci"> PHYS 32 - Physics II</div>
             <div class="courses engineering"> COEN 12 - Data Structures</div>
             <!--Spring Quarter Classes-->
         </div>
+        <div class="quarter key"> Key
+            <div class="courses core">Core</div>
+            <div class="courses mathsci">Math</div>
+            <div class="courses engineering">Engineering</div>
+            <div class="courses comm">Communications</div>
+            <!--Color Key-->
+        </div>
     <!--/year-->
     </div>
 </div>
 <!-- schedule -->
-<div class="key">
-    <div class="key-contents">
-        <h3 id="key-header"> Key </h3>
-        <div class="courses core">Core</div>
-        <div class="courses mathsci">Math</div>
-        <div class="courses engineering">Engineering</div>
-        <div class="courses comm">Communications</div>
-    </div>
-<!--/key-->
-</div>
 <div class="foofooter"></div>
 
 <footer>

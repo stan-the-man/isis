@@ -85,11 +85,13 @@ div.content {
 div.schedule {
 	text-align: center;
 	position: relative;
-	float: left;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 768px;
 	padding: 15px;
 	min-width: 50%;
 	margin-top: 40px;
-	margin-left: 40px;
 	border-radius: 15px;
 	border: 1px solid black;
 	-moz-box-shadow: 1px 5px 10px #888;
@@ -135,20 +137,10 @@ div.quarter {
 	margin-right: 10px;
 	text-shadow: 1px 1px #888;
 }
-div.key-contents {
-	border: 2px solid black;
-	border-radius: 20px;
-	padding: 15px;
-	width: 80%;
-	margin-right: auto;
-	-moz-box-shadow: 1px 5px 10px #888;
-	-webkit-box-shadow: 1px 5px 10px #888;
-	box-shadow: 1px 5px 10px #888;
-}
+
 div.key {
-	float: right;
-	width: 35%;
-	margin-top: 40px;
+	margin-right: 0px !important;
+	margin-left: 20px;
 }
 div.engineering { 
 	background-color: lightgreen;
@@ -205,10 +197,6 @@ div.disabled {
 	background-color: black;
 	opacity: 0.5;
 	color: white;
-}
-
-h3#key-header {
-	text-align: center;
 }
 
 div.foofooter {

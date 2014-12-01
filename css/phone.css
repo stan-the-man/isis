@@ -2,9 +2,9 @@
 /* CSS Document */
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 667px),
-screen and (max-width: 740px) {
+and (min-device-width : 300px) 
+and (max-device-width : 800px),
+screen and (max-width: 800px) {
 	div.schedule { 
 		display: block;
 		width: 100%;
@@ -16,23 +16,11 @@ screen and (max-width: 740px) {
 		box-shadow: 0px 0px 0px #fff;
 	}
 
-	div.key {
-		width: 100%;
-		margin-bottom: 40px;
-		margin-left: 0;
-		margin-right: 0;
-	}
-
-	div.key-contents {
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		width: 240px;
-	}
 	div.courses {
 		width: 100%;
 		max-width: 220px;
 	}
+
 	div.quarter {
 		border: 2px solid black;
 		border-radius: 20px;
@@ -44,9 +32,11 @@ screen and (max-width: 740px) {
 		-webkit-box-shadow: 1px 5px 10px #888;
 		box-shadow: 1px 5px 10px #888;
 	}
+
 	div.content {
 		height: 29em;
 	}
+
 	footer {
 		background-color:black;
 		position:fixed;
@@ -56,9 +46,11 @@ screen and (max-width: 740px) {
 		height:3em;
 		text-align:center;
 	}
+
 	div.foofooter {
 		display: block;
 	}
+	
 	div.botbutt {
 		margin: 0;
 		padding: 0;
