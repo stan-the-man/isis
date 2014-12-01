@@ -1,4 +1,12 @@
-/* register all our click handlers etc */
+/* register all our click handlers etc 
+  Written by Jason Dougherty and Ashley Sehatti
+  Last updated: 12/1/2014 
+  
+  Below are all the on click handlers for the website. 
+  
+  DESCRIPTION OF WHY WE USED THE METHODS WE USED HERE
+
+*/
 
 $(document).ready(function() {
   // init the schedule
@@ -192,6 +200,8 @@ $(document).ready(function() {
 
 /********* HELPER FUNCTIONS ********/
 
+//checks if the element is active
+//if yes, turns given element to inactive and vice versa
 function toggleActive(el) {
   if($(el).hasClass('transfer')) {
     if($(el).parent().hasClass('active')) {
@@ -209,6 +219,8 @@ function toggleActive(el) {
 
 }
 
+
+//checks to see if the element is already checked in the transfer credits
 function checkTransfer(subject) {
   if($("#" + subject + "-input-transfer").prop('checked')) {
     return true;
@@ -217,6 +229,7 @@ function checkTransfer(subject) {
   }
 }
 
+//checks to see if an element is already checked in AP credits
 function checkAP(subject, minimumScore) {
   if($('#' + subject +'-select').val() >= minimumScore) {
     return true;
@@ -225,6 +238,7 @@ function checkAP(subject, minimumScore) {
   }
 }
 
+//
 function checkMathAP() {
   if($('#math-12-select').val() >= 4) {
     Schedule.setMath(12);
@@ -259,6 +273,8 @@ function checkRadio(subject) {
   }
 }
 
+//if click on a math class that is higher in the sequence than others, auto selects the rest and greys them out
+//so that user cannot manipulate them.
 function disableMath(level) {
   var courses;
   switch(level) {
@@ -278,6 +294,8 @@ function disableMath(level) {
   courses.parent().removeClass('active').addClass('disabled');
 }
 
+//if select a coen class deeper in the sequence, auto highlights all pre-req credits
+//and greys them out so that user cannot maniuplate and screw up schedule
 function disableCoen(level) {
   var courses;
   switch(level) {
