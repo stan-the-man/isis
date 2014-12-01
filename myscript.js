@@ -1,3 +1,15 @@
+/*
+	Written by Jason Dougherty and Ashley Sehatti
+	The functions below deal with showing and hiding of the tabs on the main page
+		content1 = AP tests
+		content2 = Tranfer credits
+		content3 = Prevous programming experience and Calculus readiness exam
+		
+	They are on click handlers. 
+*/
+
+
+
 // JavaScript Document
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -56,8 +68,8 @@ function showContentTwo() {
 	document.getElementById('schedule').className='schedule';
 }
 
-//this function will show content2 and hide the others
-//content2 tab will be set to active
+//this function will show content3 and hide the others
+//content3 tab will be set to active
 function showContentThree() {
 	if(!$("#content1, #content2, #content3").is(":visible")) {
 		$("#content3").slideDown();
